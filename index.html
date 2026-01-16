@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal Portfolio of a Creative Developer" />
+  <title>My Portfolio</title>
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo">E.W.</div>
+      <nav class="nav">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-content fade-in-up">
+          <h1 class="hero-title">Hello, I'm <span class="text-gradient">Elio Wanner</span></h1>
+          <p class="hero-subtitle">Visual Designer & Developer</p>
+          <p class="hero-text">Building digital experiences that blend aesthetic excellence with technical precision.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-visual fade-in-up delay-200">
+          <div class="visual-circle"></div>
+          <img src="/avatar.png" alt="Elio Wanner Avatar" class="hero-avatar">
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container">
+          <h2 class="section-title fade-in-scroll">About Me</h2>
+          <div class="about-grid">
+            <div class="about-text fade-in-scroll">
+              <p>I am a passionate developer with a knack for creating intuitive and beautiful interfaces. With a
+                background in both design and engineering, I bridge the gap between form and function.</p>
+              <p>When I'm not coding, you can find me exploring new technologies, contributing to open source, or hiking
+                in the Swiss Alps.</p>
+            </div>
+            <div class="about-skills fade-in-scroll delay-200">
+              <h3>Skills</h3>
+              <div class="skill-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">CSS/SCSS</span>
+                <span class="tag">UI/UX Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects">
+        <div class="container">
+          <h2 class="section-title fade-in-scroll">Selected Works</h2>
+          <div class="projects-grid" id="projects-grid">
+            <!-- Projects will be injected here via JS -->
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <div class="contact-card fade-in-scroll">
+            <h2 class="section-title">Let's Connect</h2>
+            <p>Interested in working together? Drop me a line.</p>
+            <a href="mailto:hello@eliowanner.com" class="btn btn-primary shimmer">Get in Touch</a>
+            <div class="social-links">
+              <a href="#" aria-label="GitHub">GitHub</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" aria-label="Twitter">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+</body>
+
+</html>
