@@ -3,31 +3,40 @@ import './style.css'
 // Project Data
 const projects = [
     {
-        id: "ecommerce-dashboard",
-        title: "E-Commerce Dashboard",
-        description: "A comprehensive dashboard for managing online stores, featuring real-time analytics and inventory management.",
-        longDescription: "This project addresses the need for a unified platform to manage e-commerce operations. It integrates with major payment gateways and shipping providers to provide a seamless experience for store owners. The dashboard offers real-time insights into sales performance, customer behavior, and inventory levels.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        link: "project.html?id=ecommerce-dashboard",
-        skills: ["React", "Node.js", "CSS/SCSS"]
+        id: "better-contacts",
+        title: "Better Contacts",
+        description: "An intelligent app to visualize your social network, track connections, and remember key facts about people.",
+        longDescription: "Better Contacts helps you maintain meaningful relationships by visualizing your social network as an interactive graph. It serves as a personal CRM, reminding you of how you met people, important facts, and connection history. The app uses smart algorithms to suggest when to reach out and highlights strength of connections.",
+        image: "/better-contacts.png",
+        link: "project.html?id=better-contacts",
+        skills: ["React", "D3.js", "Firebase", "Graph Theory"]
     },
     {
-        id: "ai-chat-interface",
-        title: "AI Chat Interface",
-        description: "A sleek, responsive chat interface powered by modern LLMs, featuring code highlighting and voice input.",
-        longDescription: "Designed to democratize access to advanced AI models, this chat interface prioritizes user experience and accessibility. It supports markdown rendering, syntax highlighting for code blocks, and voice-to-text input, making it a versatile tool for developers and curious minds alike.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop",
-        link: "project.html?id=ai-chat-interface",
-        skills: ["JavaScript", "UI/UX Design", "TypeScript"]
+        id: "sbb-hackathon",
+        title: "SBB Hackathon Winner",
+        description: "Award-winning (25k CHF) prototype using genetic algorithms to optimize construction scheduling for SBB.",
+        longDescription: "Won 25,000 CHF at the SBB Hackathon with a team of 4. In 36 hours, we developed 'TrackOpt', a prototype that uses genetic algorithms to determine the optimal timing for construction packages in the transport industry. The solution minimizes disruptions and costs by intelligently scheduling maintenance windows.",
+        image: "/sbb-hackathon.png",
+        link: "project.html?id=sbb-hackathon",
+        skills: ["Python", "Genetic Algorithms", "Optimization", "SBB Data"]
     },
     {
-        id: "travel-planner-app",
-        title: "Travel Planner App",
-        description: "Mobile-first application for planning trips, including itinerary scheduling and budget tracking.",
-        longDescription: "Planning a trip can be overwhelming. This app simplifies the process by allowing users to create detailed itineraries, track expenses in real-time, and collaborate with travel companions. It features offline mode and integration with map services.",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621&auto=format&fit=crop",
-        link: "project.html?id=travel-planner-app",
-        skills: ["React", "UI/UX Design"]
+        id: "snake-assembly",
+        title: "Snake in Assembly",
+        description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix and motion controls.",
+        longDescription: "A deep dive into low-level programming at EPFL. I implemented the full Snake game logic in Assembly language, running on an FPGA board. The game features a custom 8x8 LED matrix display driver and accelerometer-based motion controls for an immersive retro experience.",
+        image: "/snake-assembly.png",
+        link: "project.html?id=snake-assembly",
+        skills: ["Assembly", "FPGA", "Hardware Design", "VHDL"]
+    },
+    {
+        id: "address-scrambling",
+        title: "Hardware Address Scrambling",
+        description: "Research project at ETH IIS Lab on hardware address scrambling for improved efficiency and security.",
+        longDescription: "During my semester project at ETH Zürich's IIS Lab, I worked on designing a hardware address scrambling unit. The novel architecture improved memory access efficiency and security against side-channel attacks. This work contributed to a published research paper on secure hardware design.",
+        image: "/address-scrambling.png",
+        link: "project.html?id=address-scrambling",
+        skills: ["Verilog", "Hardware Security", "Research", "ETH IIS"]
     }
 ];
 
@@ -182,4 +191,41 @@ document.querySelectorAll('a, button').forEach(el => {
             cursorOutline.style.backgroundColor = 'transparent';
         }
     });
+});
+
+// Page Transition Logic
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to ensure CSS transition triggers
+    setTimeout(() => {
+        document.body.classList.add('is-loaded');
+    }, 50);
+});
+
+// Handle outgoing links
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+
+        // Ignore if:
+        // 1. No href
+        // 2. Open in new tab (target="_blank")
+        // 3. Anchor link on same page (starts with #)
+
+        if (!href || link.target === '_blank' || href.startsWith('#')) return;
+
+        // Simplify: allow internal transitions
+        e.preventDefault();
+        document.body.classList.remove('is-loaded');
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 400); // Matches CSS duration
+    });
+});
+
+// Handle Browser Back/Forward Cache
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        document.body.classList.add('is-loaded');
+    }
 });

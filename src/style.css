@@ -53,6 +53,17 @@ body {
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
+/* Page Transitions */
+.page-transition {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+body.page-transition.is-loaded {
+  opacity: 1;
+}
+
+
 /* Custom Cursor */
 .cursor-dot,
 .cursor-outline {
