@@ -23,11 +23,13 @@ const projects = [
     {
         id: "snake-assembly",
         title: "Snake in Assembly",
-        description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix.",
-        longDescription: "A deep dive into low-level programming at EPFL. I implemented the full Snake game logic in Assembly language, running on an FPGA board. The game features a custom 8x8 LED matrix display driver and accelerometer-based motion controls for an immersive retro experience.",
+        description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix and motion controls.",
+        longDescription: "For the EE-208 course, we developed a Snake game on a microcontroller in Assembly code. The game is displayed on an 8x8 LED matrix with the score shown on an LCD screen (which persists highscores). Players can control the snake using either an infrared distance sensor for hand-motion control or an infrared remote. The system features custom drivers for hardware input/output and interrupt-based handling.",
         image: "/snake-assembly.png",
         link: "project.html?id=snake-assembly",
-        skills: ["Assembly", "FPGA", "Hardware Design", "VHDL"]
+        skills: ["Assembly", "FPGA", "Hardware Design", "Interrupts"],
+        video: "ql-HQcmxW4Q",
+        gallery: ["/snake-structure.png", "/snake-hardware.png"]
     },
     {
         id: "address-scrambling",
@@ -67,6 +69,45 @@ if (isProjectPage) {
         const skillsContainer = document.getElementById('project-skills');
         if (skillsContainer) {
             skillsContainer.innerHTML = project.skills.map(skill => `<span class="tag">${skill}</span>`).join('');
+        }
+
+        // Render Media (Video & Gallery)
+        const placeholderContent = document.querySelector('.placeholder-content');
+        if (placeholderContent) {
+            let mediaHTML = '';
+
+            // Video Embed
+            if (project.video) {
+                mediaHTML += `
+                    <div class="video-container" style="margin-bottom: 3rem; margin-top: 2rem;">
+                        <iframe width="100%" height="450" style="border-radius: 12px;" 
+                            src="https://www.youtube.com/embed/${project.video}" 
+                            title="Project Video" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+            }
+
+            // Gallery
+            if (project.gallery && project.gallery.length > 0) {
+                mediaHTML += `<div class="project-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">`;
+                project.gallery.forEach(img => {
+                    mediaHTML += `<img src="${img}" alt="${project.title} screenshot" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">`;
+                });
+                mediaHTML += `</div>`;
+            }
+
+            // Only replace content if we have media, otherwise remove placeholder
+            if (mediaHTML) {
+                placeholderContent.innerHTML = mediaHTML;
+                placeholderContent.style.background = 'transparent'; // Remove default placeholder style
+                placeholderContent.style.border = 'none';
+                placeholderContent.style.padding = '0';
+            } else {
+                placeholderContent.remove();
+            }
         }
     } else {
         document.body.innerHTML = "<h1>Project not found</h1> <a href='/'>Go Home</a>";
@@ -159,39 +200,7 @@ if (themeToggle) {
     });
 }
 
-// Custom Cursor
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
 
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    if (cursorDot && cursorOutline) {
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    }
-});
-
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        if (cursorOutline) {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-        }
-    });
-    el.addEventListener('mouseleave', () => {
-        if (cursorOutline) {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursorOutline.style.backgroundColor = 'transparent';
-        }
-    });
-});
 
 // Page Transition Logic
 document.addEventListener('DOMContentLoaded', () => {
