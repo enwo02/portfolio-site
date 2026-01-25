@@ -101,40 +101,70 @@
         </header>
 
         <main class="project-page-main">
-            <div class="project-header-image" style="background-image: url('/sbb-hackathon.png')">
+            <div class="project-header-image" style="background-image: url('/sbb-predictive-heating.png')">
                 <div class="image-overlay"></div>
             </div>
 
             <div class="container project-content-container">
                 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 class="project-page-title">Energy Optimization Algo</h1>
+                <h1 class="project-page-title">Predictive rail switch heating algorithm</h1>
 
                 <div class="project-meta">
                     <div class="skill-tags">
                         <span class="tag">Python</span>
+                        <span class="tag">Physics Modeling</span>
                         <span class="tag">Optimization</span>
-                        <span class="tag">Data Science</span>
-                        <span class="tag">Energy</span>
+                        <span class="tag">Energy Efficiency</span>
                     </div>
                 </div>
 
                 <div class="project-body">
-                    <p class="project-full-description">
-                        Developed a predictive optimization algorithm in Python for SBB to manage heating loads. The
-                        solution achieved a 30% reduction in operating costs and improved reliability to over 98%. This
-                        project secured 50k CHF in government funding for further development and established a pilot
-                        project collaboration.
-                    </p>
+                    <section class="project-section">
+                        <h2>The Challenge</h2>
+                        <p>
+                            Rail switches require heating to remain operational in freezing conditions. However,
+                            traditional heating systems often operate inefficiently, consuming significant power even
+                            when not strictly necessary. The goal was to optimize this energy consumption without
+                            compromising the reliability of the rail network.
+                        </p>
+                    </section>
 
-                    <div class="placeholder-content">
-                        <h3>Key Features</h3>
+                    <section class="project-section">
+                        <h2>Physics-Based Prediction</h2>
+                        <p>
+                            I developed a physics model of the railroad infrastructure to predict how rail temperature
+                            changes over time. By looking ahead a couple of hours, the algorithm determines exactly when
+                            heating is required to maintain switch availability. This proactive approach ensures the
+                            switch is heated only when necessary, avoiding wasteful energy usage during borderline
+                            conditions.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Pilot Success & Impact</h2>
+                        <p>
+                            The algorithm was implemented in a pilot project where it demonstrated a large percentage
+                            reduction in power consumption. Its success proved that predictive heating is a viable path
+                            forward for sustainable rail infrastructure.
+                        </p>
                         <ul>
-                            <li>30% Cost Reduction</li>
-                            <li>98%+ Reliability</li>
-                            <li>Predictive Load Management</li>
+                            <li><strong>Energy Savings:</strong> Significant reduction in power usage compared to
+                                traditional control methods.</li>
+                            <li><strong>Government Funding:</strong> The project's success and potential impact secured
+                                government funding for further development.</li>
                         </ul>
-                    </div>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Smart Load Management</h2>
+                        <p>
+                            Beyond energy savings, the algorithm also improves load management. Effective distribution
+                            of the electrical load is critical for the "Taktfahrplan" (interval timetable). By
+                            predicting heating needs, the system can distribute the load more intelligently, preventing
+                            peak demand spikes and ensuring smoother grid operation.
+                        </p>
+                    </section>
                 </div>
             </div>
         </main>

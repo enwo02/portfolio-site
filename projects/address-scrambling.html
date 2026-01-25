@@ -101,40 +101,76 @@
         </header>
 
         <main class="project-page-main">
-            <div class="project-header-image" style="background-image: url('/address-scrambling.png')">
+            <div class="project-header-image" style="background-image: url('/flex-vecpool.png')">
                 <div class="image-overlay"></div>
             </div>
 
             <div class="container project-content-container">
                 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 class="project-page-title">Hardware Address Scrambling</h1>
+                <h1 class="project-page-title">Flex-VecPool: Flexible SPM Partitioning on Vectorized MemPool</h1>
 
                 <div class="project-meta">
                     <div class="skill-tags">
-                        <span class="tag">Verilog</span>
-                        <span class="tag">Hardware Security</span>
-                        <span class="tag">Research</span>
-                        <span class="tag">ETH IIS</span>
+                        <span class="tag">SystemVerilog</span>
+                        <span class="tag">Computer Architecture</span>
+                        <span class="tag">Many-Core</span>
+                        <span class="tag">Optimization</span>
                     </div>
                 </div>
 
                 <div class="project-body">
-                    <p class="project-full-description">
-                        During my semester project at ETH Zürich's IIS Lab, I worked on designing a hardware address
-                        scrambling unit. The novel architecture improved memory access efficiency and security against
-                        side-channel attacks. This work contributed to a published research paper on secure hardware
-                        design.
-                    </p>
+                    <section class="project-section">
+                        <h2>The Challenge: Bandwidth Wall</h2>
+                        <p>
+                            Modern many-core SoCs increasingly hit an interconnect-bandwidth wall once hundreds of
+                            vector units stream data from a shared scratch-pad memory (SPM). This creates a bottleneck
+                            that limits performance even when ample compute power is available.
+                        </p>
+                    </section>
 
-                    <div class="placeholder-content">
-                        <h3>Key Features</h3>
+                    <section class="project-section">
+                        <h2>The Solution: Flex-VecPool</h2>
+                        <p>
+                            This thesis introduces <strong>Flex-VecPool</strong>, which confronts this challenge by
+                            fusing the run-time address-scrambling engine of Flex-TeraPool with the vectorised core
+                            clusters of MemPool-Spatz. The result is a fully software-transparent SPM that can be
+                            repartitioned to favour locality within each tile.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Hardware Implementation</h2>
+                        <p>
+                            The added hardware consists of a lightweight, configurable remapper on every memory port.
+                            Synthesis in GF-12 nm shows a total cell-area increase below <strong>1%</strong> (0.71% on
+                            MemPool, 0.99% on TeraPool), with the largest delta confined to the address cross-bar.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Performance Results</h2>
+                        <p>
+                            Benchmarking four kernels across three system sizes (4–128 cores) demonstrates that
+                            locality-aware folding delivers large, workload-selective gains.
+                        </p>
                         <ul>
-                            <li>Enhanced Security</li>
-                            <li>Efficient Memory Access</li>
-                            <li>Side-channel Protection</li>
+                            <li><strong>Dot Product:</strong> Speed-ups reach <strong>4.6×</strong> on a 128-core
+                                TeraPool and 69% fewer cycles on a 64-core MemPool.</li>
+                            <li><strong>GEMV:</strong> Up to a <strong>66%</strong> cycle reduction.</li>
+                            <li><strong>Impact:</strong> FPU-utilisation jumps from 5% to 22% for Dot Product and from
+                                12% to 36% for GEMV on large clusters.</li>
                         </ul>
-                    </div>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Conclusion</h2>
+                        <p>
+                            Overall, Flex-VecPool shows that a < 1% area investment in dynamic SPM partitioning can
+                                unlock multi-fold performance gains for bandwidth-dominated, sequential workloads
+                                without modifying existing software, and it scales seamlessly from MinPool up to the
+                                large TeraPool system. </p>
+                    </section>
                 </div>
             </div>
         </main>

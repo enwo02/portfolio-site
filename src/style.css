@@ -609,3 +609,29 @@ body.page-transition.is-loaded {
     height: 240px;
   }
 }
+
+/* Utility Classes for Content */
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-image-figure {
+  margin: var(--spacing-md) 0;
+}
+
+.project-image-figure figcaption {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-xs);
+}

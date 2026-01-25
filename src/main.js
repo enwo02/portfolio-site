@@ -3,22 +3,22 @@ import './style.css'
 // Project Data
 const projects = [
     {
-        id: "siemens-pipeline",
-        title: "Cloud Data Pipeline",
-        description: "Automated cloud-based data pipeline integrating AWS, Snowflake, and PowerBI for visualized business insights.",
-        longDescription: "At Siemens AG, I engineered a fully automated cloud data pipeline. By leveraging AWS for orchestration and Snowflake for data warehousing, I eliminated manual data handling processes (saving ~1 FTE). The pipeline feeds directly into PowerBI dashboards, empowering customers to make data-driven decisions regarding energy efficiency and CO2 savings.",
-        image: "/vite.svg", // Placeholder
-        link: "projects/siemens-pipeline.html",
-        skills: ["AWS", "Snowflake", "Python", "PowerBI"]
+        id: "hardware-watchdog",
+        title: "Implementation of a hardware watchdog",
+        description: "Hardware watchdog integration for CROC SoC to improve robustness.",
+        longDescription: "Integrated a hardware watchdog into the CROC SoC to detect processor stalls and deadlocks. Features a configurable timeout, OBI-protocol wrapper, and system-wide reset. Validated with randomized test cases and zero physical design violations.",
+        image: "/hardware-watchdog.png",
+        link: "projects/hardware-watchdog.html",
+        skills: ["SystemVerilog", "RISC-V", "FPGA", "Hardware Verification"]
     },
     {
         id: "sbb-optimization",
-        title: "Energy Optimization Algo",
-        description: "Predictive algorithm for heating load distribution reducing operating costs by 30%.",
+        title: "Predictive rail switch heating algorithm",
+        description: "Physics-based predictive heating algorithm to optimize energy consumption for SBB rail switches.",
         longDescription: "Developed a predictive optimization algorithm in Python for SBB to manage heating loads. The solution achieved a 30% reduction in operating costs and improved reliability to over 98%. This project secured 50k CHF in government funding for further development and established a pilot project collaboration.",
-        image: "/sbb-hackathon.png",
+        image: "/sbb-predictive-heating.png",
         link: "projects/sbb-optimization.html",
-        skills: ["Python", "Optimization", "Data Science", "Energy"]
+        skills: ["Python", "Physics Modeling", "Optimization", "Energy Efficiency"]
     },
     {
         id: "snake-assembly",
@@ -33,12 +33,21 @@ const projects = [
     },
     {
         id: "address-scrambling",
-        title: "Hardware Address Scrambling",
-        description: "Research project at ETH IIS Lab on hardware address scrambling for security.",
-        longDescription: "During my semester project at ETH Zürich's IIS Lab, I worked on designing a hardware address scrambling unit. The novel architecture improved memory access efficiency and security against side-channel attacks. This work contributed to a published research paper on secure hardware design.",
-        image: "/address-scrambling.png",
+        title: "Flex-VecPool: Flexible SPM Partitioning",
+        description: "Software-transparent SPM repartitioning for vectorized many-core SoCs, achieving 4.6x speedup.",
+        longDescription: "Introduced Flex-VecPool, fusing address-scrambling with vectorized core clusters. Features a lightweight remapper (<1% area) that enables locality-aware folding. Achieved 4.6x speedup in Dot Product and 66% cycle reduction in GEMV.",
+        image: "/flex-vecpool.png",
         link: "projects/address-scrambling.html",
-        skills: ["Verilog", "Hardware Security", "Research", "ETH IIS"]
+        skills: ["SystemVerilog", "Computer Architecture", "Many-Core", "Optimization"]
+    },
+    {
+        id: "hack-the-tracks",
+        title: "Hack the tracks",
+        description: "Genetic algorithm for construction site planning (Hackathon Winner - 25k CHF).",
+        longDescription: "Winning solution for the 'Hack the Tracks' hackathon (25,000 CHF prize). Developed a genetic algorithm for optimizing construction site planning between different transport modes in just 36 hours. Features a Python backend and Streamlit frontend.",
+        image: "/hack-the-tracks-team.jpg",
+        link: "projects/hack-the-tracks.html",
+        skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit"]
     }
 ];
 

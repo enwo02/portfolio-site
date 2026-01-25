@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloud Data Pipeline | Elio Wanner</title>
+    <title>Hack the tracks | Elio Wanner</title>
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme');
@@ -101,40 +101,59 @@
         </header>
 
         <main class="project-page-main">
-            <div class="project-header-image" style="background-image: url('/vite.svg')">
+            <div class="project-header-image" style="background-image: url('/hack-the-tracks-team.jpg')">
                 <div class="image-overlay"></div>
             </div>
 
             <div class="container project-content-container">
                 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 class="project-page-title">Cloud Data Pipeline</h1>
+                <h1 class="project-page-title">Hack the tracks</h1>
 
                 <div class="project-meta">
                     <div class="skill-tags">
-                        <span class="tag">AWS</span>
-                        <span class="tag">Snowflake</span>
                         <span class="tag">Python</span>
-                        <span class="tag">PowerBI</span>
+                        <span class="tag">Genetic Algorithm</span>
+                        <span class="tag">Optimization</span>
+                        <span class="tag">Streamlit</span>
                     </div>
                 </div>
 
                 <div class="project-body">
-                    <p class="project-full-description">
-                        At Siemens AG, I engineered a fully automated cloud data pipeline. By leveraging AWS for
-                        orchestration and Snowflake for data warehousing, I eliminated manual data handling processes
-                        (saving ~1 FTE). The pipeline feeds directly into PowerBI dashboards, empowering customers to
-                        make data-driven decisions regarding energy efficiency and CO2 savings.
-                    </p>
+                    <section class="project-section">
+                        <h2>The Hackathon</h2>
+                        <p>
+                            In a 36-hour sprint, our team participated in the "Hack the Tracks" challenge. Our
+                            innovative solution for optimizing construction site planning between different transport
+                            modes secured us the <strong>1st place</strong> and a prize of <strong>25,000 CHF</strong>.
+                        </p>
+                    </section>
 
-                    <div class="placeholder-content">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Automated Data Ingestion</li>
-                            <li>Scalable Cloud Architecture</li>
-                            <li>Real-time Visualization</li>
-                        </ul>
-                    </div>
+                    <section class="project-section">
+                        <h2>The Solution</h2>
+                        <p>
+                            We developed a full-stack solution featuring a genetic algorithm to optimize complex
+                            scheduling constraints. The system manages conflicts and dependencies between various
+                            transport mode construction sites (rail, road, gondola).
+                        </p>
+                        <p>
+                            The implementation included a robust backend for the optimization logic and a user-friendly
+                            Streamlit frontend for visualization and interaction.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Success</h2>
+                        <p>
+                            Our team "Biology Meets Rigi" successfully pitched the solution, demonstrating real-time
+                            optimization capabilities and a clear path to impact.
+                        </p>
+                        <figure class="project-image-figure">
+                            <img src="/hack-the-tracks-ui.png" alt="Hack the Tracks UI Screenshot"
+                                class="content-image rounded shadow">
+                            <figcaption>The main dashboard showing the optimized schedule and map.</figcaption>
+                        </figure>
+                    </section>
                 </div>
             </div>
         </main>
