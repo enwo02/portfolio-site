@@ -57,11 +57,12 @@ const resolvePath = (path) => {
     // If path doesn't start with /, return as is
     if (!path.startsWith('/')) return path;
 
-    // Hardcode base URL to avoid import.meta issues for now
-    // In dev it is usually /, in prod /portfolio-site/
-    const baseUrl = '/';
+    // Use Vite's BASE_URL which is set in vite.config.js
+    // In dev, usually serve at root '/', so we use '/' to avoid broken images if accessing root directly
+    // In prod, use the configured base URL
+    const baseUrl = import.meta.env.DEV ? '/' : import.meta.env.BASE_URL;
 
-    // Avoid double slashes if base ends with /
+    // import.meta.env.BASE_URL always ends with / in Vite
     if (baseUrl.endsWith('/')) {
         return `${baseUrl}${path.substring(1)}`;
     }
