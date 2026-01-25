@@ -9,7 +9,9 @@ const projects = [
         longDescription: "Integrated a hardware watchdog into the CROC SoC to detect processor stalls and deadlocks. Features a configurable timeout, OBI-protocol wrapper, and system-wide reset. Validated with randomized test cases and zero physical design violations.",
         image: "/hardware-watchdog.png",
         link: "projects/hardware-watchdog.html",
-        skills: ["SystemVerilog", "RISC-V", "FPGA", "Hardware Verification"]
+        skills: ["SystemVerilog", "RISC-V", "FPGA", "Hardware Verification"],
+        type: "ETH",
+        date: "Jun 2025"
     },
     {
         id: "sbb-optimization",
@@ -18,7 +20,9 @@ const projects = [
         longDescription: "Developed a predictive optimization algorithm in Python for SBB to manage heating loads. The solution achieved a 30% reduction in operating costs and improved reliability to over 98%. This project secured 50k CHF in government funding for further development and established a pilot project collaboration.",
         image: "/sbb-predictive-heating.png",
         link: "projects/sbb-optimization.html",
-        skills: ["Python", "Physics Modeling", "Optimization", "Energy Efficiency"]
+        skills: ["Python", "Physics Modeling", "Optimization", "Energy Efficiency"],
+        type: "SBB",
+        date: "Jan 2024"
     },
     {
         id: "snake-assembly",
@@ -29,7 +33,9 @@ const projects = [
         link: "projects/snake-assembly.html",
         skills: ["Assembly", "FPGA", "Hardware Design", "Interrupts"],
         video: "ql-HQcmxW4Q",
-        gallery: ["/snake-structure.png", "/snake-hardware.png"]
+        gallery: ["/snake-structure.png", "/snake-hardware.png"],
+        type: "EPFL",
+        date: "May 2022"
     },
     {
         id: "address-scrambling",
@@ -38,7 +44,9 @@ const projects = [
         longDescription: "Introduced Flex-VecPool, fusing address-scrambling with vectorized core clusters. Features a lightweight remapper (<1% area) that enables locality-aware folding. Achieved 4.6x speedup in Dot Product and 66% cycle reduction in GEMV.",
         image: "/flex-vecpool.png",
         link: "projects/address-scrambling.html",
-        skills: ["SystemVerilog", "Computer Architecture", "Many-Core", "Optimization"]
+        skills: ["SystemVerilog", "Computer Architecture", "Many-Core", "Optimization"],
+        type: "ETH",
+        date: "Jun 2025"
     },
     {
         id: "hack-the-tracks",
@@ -47,7 +55,8 @@ const projects = [
         longDescription: "Winning solution for the 'Hack the Tracks' hackathon (25,000 CHF prize). Developed a genetic algorithm for optimizing construction site planning between different transport modes in just 36 hours. Features a Python backend and Streamlit frontend.",
         image: "/hack-the-tracks-team.jpg",
         link: "projects/hack-the-tracks.html",
-        skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit"]
+        skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit"],
+        date: "Jan 2026"
     }
 ];
 
@@ -70,12 +79,28 @@ const resolvePath = (path) => {
 };
 
 
+// Helper to parse "Month Year" into a Date object
+const parseDate = (dateStr) => {
+    if (!dateStr) return new Date(0); // No date = old
+    const [month, year] = dateStr.split(' ');
+    // Create date from "Month Year" (e.g., "Jun 2025" -> "2025-06-01")
+    return new Date(`${month} 1, ${year}`);
+};
+
+// Sort projects by date (Newest First)
+projects.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+
 // Home Page Logic: Render Projects
 const projectsContainer = document.getElementById('projects-grid');
 if (projectsContainer) {
     projectsContainer.innerHTML = projects.map(project => `
         <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
-            <div class="project-image" style="background-image: url('${resolvePath(project.image)}')"></div>
+            <div class="project-image" style="background-image: url('${resolvePath(project.image)}')">
+                <div class="project-badges">
+                    ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
+                    ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
+                </div>
+            </div>
             <div class="project-info">
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-desc">${project.description}</p>

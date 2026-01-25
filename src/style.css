@@ -378,6 +378,7 @@ body.page-transition.is-loaded {
   background-color: #2a2a2a;
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 .project-info {
@@ -390,6 +391,77 @@ body.page-transition.is-loaded {
 .project-title {
   font-size: 1.25rem;
   margin-bottom: var(--spacing-xs);
+}
+
+.project-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.badge-type {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.badge-date {
+  background: rgba(0, 0, 0, 0.75);
+  /* Darker for better contrast */
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+  margin-left: auto;
+  /* Fallback if single item */
+}
+
+/* If there is no type badge, we still want date on right */
+.project-badges:has(.badge-type):has(.badge-date) .badge-date {
+  margin-left: 0;
+}
+
+/* Actually flex justify-content: space-between handles the spacing if both exist. 
+   If only date exists, we want it on the right. 
+   If only type exists, we want it on the left.
+*/
+.badge-date:first-child {
+  margin-left: auto;
+}
+
+/* Optional Brand Colors */
+.badge-eth {
+  background: rgba(33, 92, 175, 0.85);
+  /* ETH Blue-ish */
+  border-color: rgba(33, 92, 175, 0.5);
+}
+
+.badge-epfl {
+  background: rgba(227, 25, 25, 0.85);
+  /* EPFL Red */
+  border-color: rgba(227, 25, 25, 0.5);
+}
+
+.badge-sbb {
+  background: rgba(235, 0, 0, 0.85);
+  /* SBB Red */
+  border-color: rgba(235, 0, 0, 0.5);
 }
 
 .project-desc {
