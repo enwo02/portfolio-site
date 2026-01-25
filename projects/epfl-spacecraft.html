@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPFL Spacecraft Team | Elio Wanner</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-primary: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Critical CSS for Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(125, 125, 125, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--text-primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="page-transition">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="app">
+        <header class="header">
+            <div class="logo">E.W.</div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#projects" class="nav-link">Work</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main class="project-page-main">
+            <div class="project-header-image" style="background-image: url('../est-logo.png')">
+                <div class="image-overlay"></div>
+            </div>
+
+            <div class="container project-content-container">
+                <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+                <h1 class="project-page-title">EPFL Spacecraft Team</h1>
+
+                <div class="project-meta">
+                    <div class="skill-tags">
+                        <span class="tag">PCB Design</span>
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Space Systems</span>
+                        <span class="tag">Electronics</span>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <section class="project-section">
+                        <h2>Start of an Era</h2>
+                        <p>
+                            The EPFL Spacecraft Team is a student association at EPFL dedicated to designing, building,
+                            and launching satellites. I joined the team with a passion for space systems and soon took
+                            on a leadership role.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>My Role</h2>
+                        <p>
+                            As a Team Leader, I managed a group of students working on the critical electronic
+                            subsystems of the satellite. My responsibilities included verifying designs, coordinating
+                            between subsystems, and ensuring we met our strict launch deadlines.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>To Space and Beyond</h2>
+                        <p>
+                            The highlight of my time with the team was the development of the "Bunny" board (pictured).
+                            This board was integrated into the satellite payload and successfully launched into space in
+                            January 2023. It features multiple redundant SD card interfaces and robust power management
+                            circuitry designed to survive the harsh environment of low Earth orbit.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Gallery</h2>
+                        <div class="project-image-figure">
+                            <img src="../est-bunny-front.jpg" alt="Bunny Board Front"
+                                class="content-image rounded shadow">
+                            <figcaption>The "Bunny" board - Front View</figcaption>
+                        </div>
+                        <div class="project-image-figure">
+                            <img src="../est-bunny-back.jpg" alt="Bunny Board Back"
+                                class="content-image rounded shadow">
+                            <figcaption>The "Bunny" board - Back View with Team Names</figcaption>
+                        </div>
+                        <div class="project-image-figure">
+                            <img src="../est-sd-cards.png" alt="Bunny Board SD Cards"
+                                class="content-image rounded shadow">
+                            <figcaption>Detailed view of the SD Card interfaces</figcaption>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -57,6 +57,18 @@ const projects = [
         link: "projects/hack-the-tracks.html",
         skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit"],
         date: "Jan 2026"
+    },
+    {
+        id: "epfl-spacecraft",
+        title: "EPFL Spacecraft Team",
+        description: "Team leader for a student-built satellite project. Our board was launched into space in Jan 2023.",
+        longDescription: "The EPFL Spacecraft Team is a student association at EPFL causing satellites. I was teamleader for a while and the board I was working on was sent to space in January 2023.",
+        image: "/est-logo.png",
+        link: "projects/epfl-spacecraft.html",
+        skills: ["PCB Design", "Leadership", "Space Systems", "Electronics"],
+        type: "EPFL",
+        date: "Jan 2023",
+        gallery: ["/est-bunny-front.jpg", "/est-bunny-back.jpg", "/est-sd-cards.png"]
     }
 ];
 
