@@ -197,8 +197,15 @@ document.querySelectorAll('a, button').forEach(el => {
 document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure CSS transition triggers
     setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.remove();
+            }, 500);
+        }
         document.body.classList.add('is-loaded');
-    }, 50);
+    }, 100);
 });
 
 // Handle outgoing links
