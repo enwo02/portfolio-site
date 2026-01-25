@@ -101,21 +101,21 @@ const artProjects = [
         title: "Light Pendulum",
         description: "Long exposure photos of pendulums with a light at the end creating geometric shapes.",
         longDescription: "A series of long exposure photos of pendulums with a light at the end to create cool shapes. The complex geometric patterns reveal the beautiful physics of motion hidden in the dark.",
-        image: "/public/light-pendulum/20200202221647_IMG_7076-01.jpeg",
+        image: "/light-pendulum/20200202221647_IMG_7076-01.jpeg",
         link: "projects/light-pendulum.html",
         skills: ["Photography", "Long Exposure", "Art"],
         type: "Personal",
         date: "Feb 2020",
         gallery: [
-            "/public/light-pendulum/20200202012200_IMG_6875-01.jpeg",
-            "/public/light-pendulum/20200202012912_IMG_6900-01-01.jpeg",
-            "/public/light-pendulum/20200202013014_IMG_6904-01-01.jpeg",
-            "/public/light-pendulum/20200202220917_IMG_7060-01.jpeg",
-            "/public/light-pendulum/20200202220934_IMG_7061-01.jpeg",
-            "/public/light-pendulum/20200202221200_IMG_7065-01.jpeg",
-            "/public/light-pendulum/20200202221216_IMG_7066-01.jpeg",
-            "/public/light-pendulum/20200202221647_IMG_7076-01.jpeg",
-            "/public/light-pendulum/20200202221710_IMG_7077-01.jpeg"
+            "/light-pendulum/20200202012200_IMG_6875-01.jpeg",
+            "/light-pendulum/20200202012912_IMG_6900-01-01.jpeg",
+            "/light-pendulum/20200202013014_IMG_6904-01-01.jpeg",
+            "/light-pendulum/20200202220917_IMG_7060-01.jpeg",
+            "/light-pendulum/20200202220934_IMG_7061-01.jpeg",
+            "/light-pendulum/20200202221200_IMG_7065-01.jpeg",
+            "/light-pendulum/20200202221216_IMG_7066-01.jpeg",
+            "/light-pendulum/20200202221647_IMG_7076-01.jpeg",
+            "/light-pendulum/20200202221710_IMG_7077-01.jpeg"
         ]
     }
 ];
