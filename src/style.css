@@ -21,7 +21,7 @@
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 3rem;
-  --spacing-xl: 5rem;
+  --spacing-xl: 2rem;
 
   --border-radius: 12px;
   --transition-speed: 0.3s;
@@ -434,6 +434,10 @@ body.page-transition.is-loaded {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.contact-card .btn {
+  margin-top: var(--spacing-md);
 }
 
 .social-links {

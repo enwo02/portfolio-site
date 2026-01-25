@@ -249,8 +249,9 @@ document.querySelectorAll('a').forEach(link => {
         // 1. No href
         // 2. Open in new tab (target="_blank")
         // 3. Anchor link on same page (starts with #)
+        // 4. Mailto link (opens email client)
 
-        if (!href || link.target === '_blank' || href.startsWith('#')) return;
+        if (!href || link.target === '_blank' || href.startsWith('#') || href.startsWith('mailto:')) return;
 
         // Simplify: allow internal transitions
         e.preventDefault();
