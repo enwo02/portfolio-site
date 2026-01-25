@@ -46,6 +46,21 @@ const projects = [
 const path = window.location.pathname;
 const isProjectPage = path.includes('project.html');
 
+// Helper to resolve asset paths with Vite base URL
+const resolvePath = (path) => {
+    // If path doesn't start with /, return as is
+    if (!path.startsWith('/')) return path;
+
+    // Get base URL (e.g., '/portfolio-site/' or '/')
+    const baseUrl = import.meta.env.BASE_URL;
+
+    // Avoid double slashes if base ends with /
+    if (baseUrl.endsWith('/')) {
+        return `${baseUrl}${path.substring(1)}`;
+    }
+    return `${baseUrl}${path}`;
+};
+
 if (isProjectPage) {
     // Project Detail Page Logic
     const urlParams = new URLSearchParams(window.location.search);
@@ -57,7 +72,7 @@ if (isProjectPage) {
 
         // Populate Hero
         const header = document.querySelector('.project-header-image');
-        if (header) header.style.backgroundImage = `url('${project.image}')`;
+        if (header) header.style.backgroundImage = `url('${resolvePath(project.image)}')`;
 
         const titleEl = document.getElementById('project-title');
         if (titleEl) titleEl.textContent = project.title;
@@ -94,7 +109,7 @@ if (isProjectPage) {
             if (project.gallery && project.gallery.length > 0) {
                 mediaHTML += `<div class="project-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">`;
                 project.gallery.forEach(img => {
-                    mediaHTML += `<img src="${img}" alt="${project.title} screenshot" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">`;
+                    mediaHTML += `<img src="${resolvePath(img)}" alt="${project.title} screenshot" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">`;
                 });
                 mediaHTML += `</div>`;
             }
@@ -121,7 +136,7 @@ if (isProjectPage) {
     if (projectsContainer) {
         projectsContainer.innerHTML = projects.map(project => `
             <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
-                <div class="project-image" style="background-image: url('${project.image}')"></div>
+                <div class="project-image" style="background-image: url('${resolvePath(project.image)}')"></div>
                 <div class="project-info">
                     <h3 class="project-title">${project.title}</h3>
                     <p class="project-desc">${project.description}</p>
