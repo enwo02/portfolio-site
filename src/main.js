@@ -233,7 +233,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Handle outgoing links
+// Handle outgoing links
 document.querySelectorAll('a').forEach(link => {
+    // Dynamic Path Resolution for Nav Links
+    // This ensures links work on both local dev (/) and GitHub Pages (/portfolio-site/)
+    const rawHref = link.getAttribute('href');
+    if (rawHref && !rawHref.startsWith('http') && !rawHref.startsWith('#')) {
+        link.href = resolvePath(rawHref);
+    }
+
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
 
