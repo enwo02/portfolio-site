@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hardware Address Scrambling | Elio Wanner</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-primary: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Critical CSS for Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(125, 125, 125, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--text-primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="page-transition">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="app">
+        <header class="header">
+            <div class="logo">E.W.</div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#projects" class="nav-link">Work</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main class="project-page-main">
+            <div class="project-header-image" style="background-image: url('/address-scrambling.png')">
+                <div class="image-overlay"></div>
+            </div>
+
+            <div class="container project-content-container">
+                <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+                <h1 class="project-page-title">Hardware Address Scrambling</h1>
+
+                <div class="project-meta">
+                    <div class="skill-tags">
+                        <span class="tag">Verilog</span>
+                        <span class="tag">Hardware Security</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">ETH IIS</span>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <p class="project-full-description">
+                        During my semester project at ETH Zürich's IIS Lab, I worked on designing a hardware address
+                        scrambling unit. The novel architecture improved memory access efficiency and security against
+                        side-channel attacks. This work contributed to a published research paper on secure hardware
+                        design.
+                    </p>
+
+                    <div class="placeholder-content">
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Enhanced Security</li>
+                            <li>Efficient Memory Access</li>
+                            <li>Side-channel Protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

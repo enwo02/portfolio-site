@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Details | Elio Wanner</title>
+    <title>Snake in Assembly | Elio Wanner</title>
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme');
@@ -76,9 +76,9 @@
         <header class="header">
             <div class="logo">E.W.</div>
             <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#projects" class="nav-link">Work</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#projects" class="nav-link">Work</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
             </nav>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                 <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -101,34 +101,47 @@
         </header>
 
         <main class="project-page-main">
-            <div class="project-header-image">
+            <div class="project-header-image" style="background-image: url('/snake-assembly.png')">
                 <div class="image-overlay"></div>
             </div>
 
             <div class="container project-content-container">
-                <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+                <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 id="project-title" class="project-page-title"></h1>
+                <h1 class="project-page-title">Snake in Assembly</h1>
 
                 <div class="project-meta">
-                    <div id="project-skills" class="skill-tags">
-                        <!-- Skills injected here -->
+                    <div class="skill-tags">
+                        <span class="tag">Assembly</span>
+                        <span class="tag">FPGA</span>
+                        <span class="tag">Hardware Design</span>
+                        <span class="tag">Interrupts</span>
                     </div>
                 </div>
 
                 <div class="project-body">
-                    <p id="project-desc" class="project-full-description">
-                        <!-- Description injected here -->
+                    <p class="project-full-description">
+                        For the EE-208 course, we developed a Snake game on a microcontroller in Assembly code. The game
+                        is displayed on an 8x8 LED matrix with the score shown on an LCD screen (which persists
+                        highscores). Players can control the snake using either an infrared distance sensor for
+                        hand-motion control or an infrared remote. The system features custom drivers for hardware
+                        input/output and interrupt-based handling.
                     </p>
 
-                    <!-- Placeholder for more content screenshots code etc -->
-                    <div class="placeholder-content">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Responsive Design</li>
-                            <li>High Performance</li>
-                            <li>User Centric Interface</li>
-                        </ul>
+                    <div class="video-container" style="margin-bottom: 3rem; margin-top: 2rem;">
+                        <iframe width="100%" height="450" style="border-radius: 12px;"
+                            src="https://www.youtube.com/embed/ql-HQcmxW4Q" title="Project Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="project-gallery"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <img src="/snake-structure.png" alt="Snake in Assembly screenshot"
+                            style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="/snake-hardware.png" alt="Snake in Assembly screenshot"
+                            style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                     </div>
                 </div>
             </div>
@@ -138,7 +151,6 @@
             <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
         </footer>
     </div>
-
 
     <script type="module" src="/src/main.js"></script>
 </body>
