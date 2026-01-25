@@ -5,15 +5,16 @@
   --font-main: 'Inter', sans-serif;
 
   /* Color Palette - Dark Mode Default */
-  --bg-color: #0d0d0d;
-  --surface-color: #1a1a1a;
-  --surface-hover: #252525;
+  /* Color Palette - Dark Green Mode */
+  --bg-color: #020604;
+  --surface-color: #0a120e;
+  --surface-hover: #13201d;
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  --accent-primary: #8b5cf6;
-  /* Violet */
-  --accent-secondary: #06b6d4;
-  /* Cyan */
+  --accent-primary: #059669;
+  /* Emerald 600 */
+  --accent-secondary: #0f766e;
+  /* Teal 700 */
   --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
 
   --spacing-xs: 0.5rem;
@@ -118,6 +119,7 @@ body.page-transition.is-loaded {
   letter-spacing: -0.05em;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -192,6 +194,7 @@ body.page-transition.is-loaded {
 .text-gradient {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -231,7 +234,7 @@ body.page-transition.is-loaded {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
 }
 
 .btn-secondary {
@@ -325,6 +328,8 @@ body.page-transition.is-loaded {
   border-radius: 2px;
 }
 
+
+
 /* About Grid */
 .about-grid {
   display: grid;
@@ -359,7 +364,7 @@ body.page-transition.is-loaded {
 
 .tag:hover {
   border-color: var(--accent-primary);
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(5, 150, 105, 0.1);
   transform: translateY(-2px);
 }
 
@@ -383,7 +388,7 @@ body.page-transition.is-loaded {
 /* Hover Effects Logic Classes */
 .project-card.highlight {
   transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(5, 150, 105, 0.4);
   border-color: var(--accent-primary);
   z-index: 2;
 }
@@ -396,7 +401,7 @@ body.page-transition.is-loaded {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(5, 150, 105, 0.3);
 }
 
 .project-image {

@@ -3,27 +3,27 @@ import './style.css'
 // Project Data
 const projects = [
     {
-        id: "better-contacts",
-        title: "Better Contacts",
-        description: "An intelligent app to visualize your social network, track connections, and remember key facts about people.",
-        longDescription: "Better Contacts helps you maintain meaningful relationships by visualizing your social network as an interactive graph. It serves as a personal CRM, reminding you of how you met people, important facts, and connection history. The app uses smart algorithms to suggest when to reach out and highlights strength of connections.",
-        image: "/better-contacts.png",
-        link: "project.html?id=better-contacts",
-        skills: ["React", "D3.js", "Firebase", "Graph Theory"]
+        id: "siemens-pipeline",
+        title: "Cloud Data Pipeline",
+        description: "Automated cloud-based data pipeline integrating AWS, Snowflake, and PowerBI for visualized business insights.",
+        longDescription: "At Siemens AG, I engineered a fully automated cloud data pipeline. By leveraging AWS for orchestration and Snowflake for data warehousing, I eliminated manual data handling processes (saving ~1 FTE). The pipeline feeds directly into PowerBI dashboards, empowering customers to make data-driven decisions regarding energy efficiency and CO2 savings.",
+        image: "/vite.svg", // Placeholder
+        link: "project.html?id=siemens-pipeline",
+        skills: ["AWS", "Snowflake", "Python", "PowerBI"]
     },
     {
-        id: "sbb-hackathon",
-        title: "SBB Hackathon Winner",
-        description: "Award-winning (25k CHF) prototype using genetic algorithms to optimize construction scheduling for SBB.",
-        longDescription: "Won 25,000 CHF at the SBB Hackathon with a team of 4. In 36 hours, we developed 'TrackOpt', a prototype that uses genetic algorithms to determine the optimal timing for construction packages in the transport industry. The solution minimizes disruptions and costs by intelligently scheduling maintenance windows.",
+        id: "sbb-optimization",
+        title: "Energy Optimization Algo",
+        description: "Predictive algorithm for heating load distribution reducing operating costs by 30%.",
+        longDescription: "Developed a predictive optimization algorithm in Python for SBB to manage heating loads. The solution achieved a 30% reduction in operating costs and improved reliability to over 98%. This project secured 50k CHF in government funding for further development and established a pilot project collaboration.",
         image: "/sbb-hackathon.png",
-        link: "project.html?id=sbb-hackathon",
-        skills: ["Python", "Genetic Algorithms", "Optimization", "SBB Data"]
+        link: "project.html?id=sbb-optimization",
+        skills: ["Python", "Optimization", "Data Science", "Energy"]
     },
     {
         id: "snake-assembly",
         title: "Snake in Assembly",
-        description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix and motion controls.",
+        description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix.",
         longDescription: "A deep dive into low-level programming at EPFL. I implemented the full Snake game logic in Assembly language, running on an FPGA board. The game features a custom 8x8 LED matrix display driver and accelerometer-based motion controls for an immersive retro experience.",
         image: "/snake-assembly.png",
         link: "project.html?id=snake-assembly",
@@ -32,7 +32,7 @@ const projects = [
     {
         id: "address-scrambling",
         title: "Hardware Address Scrambling",
-        description: "Research project at ETH IIS Lab on hardware address scrambling for improved efficiency and security.",
+        description: "Research project at ETH IIS Lab on hardware address scrambling for security.",
         longDescription: "During my semester project at ETH Zürich's IIS Lab, I worked on designing a hardware address scrambling unit. The novel architecture improved memory access efficiency and security against side-channel attacks. This work contributed to a published research paper on secure hardware design.",
         image: "/address-scrambling.png",
         link: "project.html?id=address-scrambling",
