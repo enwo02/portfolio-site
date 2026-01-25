@@ -72,6 +72,54 @@ const projects = [
     }
 ];
 
+// Art Projects Data
+const artProjects = [
+    {
+        id: "lautsprecher-wasser",
+        title: "Loudspeaker Water Art",
+        description: "High-speed photography of colored water dancing on audio frequencies.",
+        longDescription: "A series of photos capturing the behavior of water mixed with paint when placed on a loudspeaker playing various low frequencies. The vibrations create standing waves and complex structures that exist for only a fraction of a second.",
+        image: "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
+        link: "projects/lautsprecher-wasser.html",
+        skills: ["Photography", "High-speed", "Art"],
+        type: "Personal",
+        date: "Feb 2020",
+        gallery: [
+            "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7530-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7531-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144302_IMG_7577-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144303_IMG_7580-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144754_IMG_7627-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7652-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7655-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145627_IMG_7660-01.jpeg"
+        ]
+    },
+    {
+        id: "light-pendulum",
+        title: "Light Pendulum",
+        description: "Long exposure photos of pendulums with a light at the end creating geometric shapes.",
+        longDescription: "A series of long exposure photos of pendulums with a light at the end to create cool shapes. The complex geometric patterns reveal the beautiful physics of motion hidden in the dark.",
+        image: "/public/light-pendulum/20200202221647_IMG_7076-01.jpeg",
+        link: "projects/light-pendulum.html",
+        skills: ["Photography", "Long Exposure", "Art"],
+        type: "Personal",
+        date: "Feb 2020",
+        gallery: [
+            "/public/light-pendulum/20200202012200_IMG_6875-01.jpeg",
+            "/public/light-pendulum/20200202012912_IMG_6900-01-01.jpeg",
+            "/public/light-pendulum/20200202013014_IMG_6904-01-01.jpeg",
+            "/public/light-pendulum/20200202220917_IMG_7060-01.jpeg",
+            "/public/light-pendulum/20200202220934_IMG_7061-01.jpeg",
+            "/public/light-pendulum/20200202221200_IMG_7065-01.jpeg",
+            "/public/light-pendulum/20200202221216_IMG_7066-01.jpeg",
+            "/public/light-pendulum/20200202221647_IMG_7076-01.jpeg",
+            "/public/light-pendulum/20200202221710_IMG_7077-01.jpeg"
+        ]
+    }
+];
+
 // Helper to resolve asset paths with Vite base URL
 const resolvePath = (path) => {
     if (!path) return ''; // Handle undefined/null
@@ -124,10 +172,41 @@ if (projectsContainer) {
         </article>
     `).join('');
 
-    // Skill Hover Interactive Logic
-    const skillTags = document.querySelectorAll('.skill-tags .tag');
-    const projectCards = document.querySelectorAll('.project-card');
 
+    /* Interaction Logic moved to end to cover all sections */
+}
+
+// Photography Logic: Render Projects
+const photographyContainer = document.getElementById('photography-grid');
+if (photographyContainer) {
+    photographyContainer.innerHTML = artProjects.map(project => `
+        <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
+            <div class="project-image" style="background-image: url('${resolvePath(project.image)}')">
+                <div class="project-badges">
+                    ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
+                    ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
+                </div>
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-desc">${project.description}</p>
+                <div class="project-tags">
+                    ${project.skills.map(s => `<span class="mini-tag">${s}</span>`).join('')}
+                </div>
+                <a href="${resolvePath(project.link)}" class="project-link">View Project &rarr;</a>
+            </div>
+        </article>
+    `).join('');
+
+    // We reuse the skill hover logic and observer if we want, or add specific ones.
+}
+
+// Global Interaction Logic (Runs after injection)
+// Skill Hover Interactive Logic
+const skillTags = document.querySelectorAll('.skill-tags .tag');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (skillTags.length > 0 && projectCards.length > 0) {
     skillTags.forEach(tag => {
         tag.addEventListener('mouseenter', () => {
             const skillName = tag.textContent.trim();
@@ -150,24 +229,24 @@ if (projectsContainer) {
             });
         });
     });
-
-    // Scroll Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
 }
+
+// Scroll Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
 
 
 // Shared Logic (Theme, Cursor, Nav)

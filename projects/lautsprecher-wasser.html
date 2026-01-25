@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loudspeaker Water Art | Elio Wanner</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-primary: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Critical CSS for Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(125, 125, 125, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--text-primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="page-transition">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="app">
+        <header class="header">
+            <div class="logo">E.W.</div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#projects" class="nav-link">Work</a>
+                <a href="../index.html#photography" class="nav-link">Photography</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main class="project-page-main">
+            <div class="project-header-image"
+                style="background-image: url('../assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg')">
+                <div class="image-overlay"></div>
+            </div>
+
+            <div class="container project-content-container">
+                <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+                <h1 class="project-page-title">Loudspeaker Water Art</h1>
+
+                <div class="project-meta">
+                    <div class="skill-tags">
+                        <span class="tag">Photography</span>
+                        <span class="tag">High-speed</span>
+                        <span class="tag">Art</span>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <section class="project-section">
+                        <h2>Project Overview</h2>
+                        <p>
+                            A series of photos capturing the behavior of water mixed with paint when placed on a
+                            loudspeaker
+                            playing various low frequencies. The vibrations create standing waves and complex structures
+                            that
+                            exist for only a fraction of a second.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Gallery</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg"
+                                    alt="Loudspeaker Water Art 1" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200219185127_IMG_7530-01.jpeg"
+                                    alt="Loudspeaker Water Art 2" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200219185127_IMG_7531-01.jpeg"
+                                    alt="Loudspeaker Water Art 3" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303144302_IMG_7577-01.jpeg"
+                                    alt="Loudspeaker Water Art 4" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303144303_IMG_7580-01.jpeg"
+                                    alt="Loudspeaker Water Art 5" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303144754_IMG_7627-01.jpeg"
+                                    alt="Loudspeaker Water Art 6" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303145625_IMG_7652-01.jpeg"
+                                    alt="Loudspeaker Water Art 7" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303145625_IMG_7655-01.jpeg"
+                                    alt="Loudspeaker Water Art 8" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../assets/photography/lautsprecher_wasser/20200303145627_IMG_7660-01.jpeg"
+                                    alt="Loudspeaker Water Art 9" loading="lazy">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
