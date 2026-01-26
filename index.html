@@ -80,29 +80,36 @@
     <header class="header">
       <div class="logo">E.W.</div>
       <nav class="nav">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#photography" class="nav-link">Photography</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+        <a href="#photography" class="nav-link" data-i18n="nav.photography">Photography</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+      <div class="header-controls">
+        <div id="language-switcher" class="language-switcher">
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -110,14 +117,15 @@
         <div class="hero-content fade-in-up">
           <h1 class="hero-title"><span class="text-gradient" style="white-space: nowrap;">Elio Wanner</span></h1>
           <p class="hero-subtitle">
-            MSc Student @ ETHZ<br>
-            Data Analyst & Cloud Engineer @ Siemens
+            <span data-i18n="hero.subtitle1">MSc Student @ ETHZ</span><br>
+            <span data-i18n="hero.subtitle2">Data Analyst & Cloud Engineer @ Siemens</span>
           </p>
-          <p class="hero-text">Specializing in Electronics, Data Engineering, and Full-Stack Development.
+          <p class="hero-text" data-i18n="hero.description">Specializing in Electronics, Chip-Design, and Railway
+            Systems.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Work</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.viewWork">View Work</a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="hero.contactMe">Contact Me</a>
           </div>
         </div>
         <div class="hero-visual fade-in-up delay-200">
@@ -128,20 +136,24 @@
 
       <section id="about" class="section about">
         <div class="container">
-          <h2 class="section-title fade-in-scroll">About Me</h2>
+          <h2 class="section-title fade-in-scroll" data-i18n="about.title">About Me</h2>
           <div class="about-grid">
             <div class="about-text fade-in-scroll">
-              <p>I am a Master's student in Electrical Engineering at ETH Zurich, specializing in Electronics.
+              <p data-i18n="about.p1">I am a Master's student in Electrical Engineering at ETH Zurich, specializing in
+                Electronics.
                 Previously, I completed my BSc at EPFL and spent an exchange year at Lund University.</p>
-              <p>Currently, I am a working student at Siemens, where I work as a Data Analyst & Cloud Engineer Intern,
+              <p data-i18n="about.p2">Currently, I am a working student at Siemens, where I work as a Data Analyst &
+                Cloud Engineer Intern,
                 building and managing cloud pipelines, improving data quality and creating visualizations for customers.
               </p>
-              <p>When I'm not coding, you can find me singing in a choir, riding a train or taking care of my plants.
+              <p data-i18n="about.p3">When I'm not coding, you can find me singing in a choir, riding a train or taking
+                care of my plants.
               </p>
-              <p><strong>Fluency:</strong> German (Native), English (C2), French (C1), Swedish (B2), Italian (A2).</p>
+              <p><strong data-i18n="about.fluency">Fluency:</strong> <span data-i18n="about.fluencyText">German
+                  (Native), English (C2), French (C1), Swedish (B2), Italian (A2).</span></p>
             </div>
             <div class="about-skills fade-in-scroll delay-200">
-              <h3>Skills</h3>
+              <h3 data-i18n="about.skillsTitle">Skills</h3>
               <div class="skill-tags">
                 <span class="tag">Python</span>
                 <span class="tag">C++</span>
@@ -164,7 +176,7 @@
 
       <section id="projects" class="section projects">
         <div class="container">
-          <h2 class="section-title fade-in-scroll">Selected Works</h2>
+          <h2 class="section-title fade-in-scroll" data-i18n="projects.title">Selected Works</h2>
           <div class="projects-grid" id="projects-grid">
             <!-- Projects will be injected here via JS -->
           </div>
@@ -173,7 +185,7 @@
 
       <section id="photography" class="section projects">
         <div class="container">
-          <h2 class="section-title fade-in-scroll">Photography</h2>
+          <h2 class="section-title fade-in-scroll" data-i18n="photography.title">Photography</h2>
           <div class="projects-grid" id="photography-grid">
             <!-- Photography projects will be injected here via JS -->
           </div>
@@ -183,9 +195,10 @@
       <section id="contact" class="section contact">
         <div class="container">
           <div class="contact-card fade-in-scroll">
-            <h2 class="section-title">Let's Connect</h2>
-            <p>Interested in working together? Drop me a line.</p>
-            <a href="mailto:elio.wanner@hotmail.com" class="btn btn-primary shimmer">Get in Touch</a>
+            <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
+            <p data-i18n="contact.description">Interested in working together? Drop me a line.</p>
+            <a href="mailto:elio.wanner@hotmail.com" class="btn btn-primary shimmer" data-i18n="contact.getInTouch">Get
+              in Touch</a>
             <div class="social-links">
               <a href="https://github.com/enwo02" aria-label="GitHub" target="_blank">GitHub</a>
               <a href="https://www.linkedin.com/in/elio-wanner-402306213" aria-label="LinkedIn"
@@ -197,7 +210,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 Elio Wanner. All rights reserved.</p>
     </footer>
   </div>
   <script type="module" src="/src/main.js"></script>

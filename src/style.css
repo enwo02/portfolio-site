@@ -113,6 +113,46 @@ body.page-transition.is-loaded {
   color: var(--text-primary);
 }
 
+/* Header Controls (Language + Theme) */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  gap: 4px;
+  background: var(--surface-color);
+  padding: 4px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 16px;
+  transition: all var(--transition-speed);
+  font-family: var(--font-main);
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn.active {
+  background: var(--accent-gradient);
+  color: white;
+}
+
 /* Theme Toggle */
 .theme-toggle {
   background: none;
@@ -655,6 +695,28 @@ body.page-transition.is-loaded {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .header-controls {
+    gap: 0.5rem;
+  }
+
+  .language-switcher {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .lang-btn {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
