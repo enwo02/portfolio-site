@@ -178,7 +178,7 @@ const projects = [
         getLongDescription: () => getTranslated("snake-assembly", "longDescription"),
         image: "/snake-assembly.png",
         link: "projects/snake-assembly.html",
-        skills: ["Assembly", "FPGA", "Hardware Design", "Interrupts"],
+        skills: ["Assembly", "FPGA", "Drivers", "Microcontrollers"],
         video: "ql-HQcmxW4Q",
         gallery: ["/snake-structure.png", "/snake-hardware.png"],
         type: "EPFL",
@@ -274,9 +274,7 @@ const resolvePath = (path) => {
     if (!path.startsWith('/')) return path;
 
     // Use Vite's BASE_URL which is set in vite.config.js
-    // In dev, usually serve at root '/', so we use '/' to avoid broken images if accessing root directly
-    // In prod, use the configured base URL
-    const baseUrl = import.meta.env.DEV ? '/' : import.meta.env.BASE_URL;
+    const baseUrl = import.meta.env.BASE_URL;
 
     // import.meta.env.BASE_URL always ends with / in Vite
     if (baseUrl.endsWith('/')) {
