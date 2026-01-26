@@ -138,6 +138,40 @@ const projectTranslations = {
             description: "Photos en longue exposition de pendules avec une lumière à l'extrémité créant des formes géométriques.",
             longDescription: "Une série de photos en longue exposition de pendules avec une lumière à l'extrémité pour créer des formes sympas. Les motifs géométriques complexes révèlent la belle physique du mouvement cachée dans l'obscurité."
         }
+    },
+    'analog-first-film': {
+        en: {
+            title: "First Analog Film",
+            description: "My very first analog film - capturing moments around Lausanne and Lund.",
+            longDescription: "This was my very first roll of analog film. The first three photos were taken around Lausanne, Switzerland, experimenting with film photography for the first time. The last photo was captured in Lund, Sweden. Each frame represents the learning process and joy of shooting on film."
+        },
+        de: {
+            title: "Erster Analogfilm",
+            description: "Mein allererster Analogfilm - Momente rund um Lausanne und Lund.",
+            longDescription: "Dies war meine allererste Rolle Analogfilm. Die ersten drei Fotos wurden rund um Lausanne, Schweiz aufgenommen, als ich zum ersten Mal mit Filmfotografie experimentierte. Das letzte Foto entstand in Lund, Schweden. Jeder Frame repräsentiert den Lernprozess und die Freude am Fotografieren auf Film."
+        },
+        fr: {
+            title: "Premier film analogique",
+            description: "Mon tout premier film analogique - capturant des moments autour de Lausanne et Lund.",
+            longDescription: "C'était mon tout premier rouleau de film analogique. Les trois premières photos ont été prises autour de Lausanne, en Suisse, expérimentant la photographie argentique pour la première fois. La dernière photo a été capturée à Lund, en Suède. Chaque image représente le processus d'apprentissage et la joie de photographier sur film."
+        }
+    },
+    'uppsala-digital': {
+        en: {
+            title: "Uppsala Autumn",
+            description: "Digital photography from Uppsala, Sweden - autumn colors and architecture.",
+            longDescription: "A collection of digital photos taken in Uppsala, Sweden during autumn 2022. Capturing the beautiful fall colors, historic architecture, and atmosphere of this charming Swedish university city."
+        },
+        de: {
+            title: "Uppsala Herbst",
+            description: "Digitalfotografie aus Uppsala, Schweden - Herbstfarben und Architektur.",
+            longDescription: "Eine Sammlung digitaler Fotos aus Uppsala, Schweden im Herbst 2022. Festhaltend die wunderschönen Herbstfarben, historische Architektur und Atmosphäre dieser charmanten schwedischen Universitätsstadt."
+        },
+        fr: {
+            title: "Uppsala Automne",
+            description: "Photographie numérique d'Uppsala, Suède - couleurs d'automne et architecture.",
+            longDescription: "Une collection de photos numériques prises à Uppsala, en Suède, pendant l'automne 2022. Capturant les belles couleurs automnales, l'architecture historique et l'atmosphère de cette charmante ville universitaire suédoise."
+        }
     }
 };
 
@@ -178,7 +212,7 @@ const projects = [
         getLongDescription: () => getTranslated("snake-assembly", "longDescription"),
         image: "/snake-assembly.png",
         link: "projects/snake-assembly.html",
-        skills: ["Assembly", "FPGA", "Drivers", "Microcontrollers", "Git"],
+        skills: ["Assembly", "FPGA", "Drivers", "Microcontrollers"],
         video: "ql-HQcmxW4Q",
         gallery: ["/snake-structure.png", "/snake-hardware.png"],
         type: "EPFL",
@@ -263,6 +297,42 @@ const artProjects = [
             "/light-pendulum/20200202221216_IMG_7066-01.jpeg",
             "/light-pendulum/20200202221647_IMG_7076-01.jpeg",
             "/light-pendulum/20200202221710_IMG_7077-01.jpeg"
+        ]
+    },
+    {
+        id: "analog-first-film",
+        getTitle: () => getTranslated("analog-first-film", "title"),
+        getDescription: () => getTranslated("analog-first-film", "description"),
+        getLongDescription: () => getTranslated("analog-first-film", "longDescription"),
+        image: "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
+        link: "projects/analog-first-film.html",
+        skills: ["Photography", "Film", "Analog"],
+        type: "Personal",
+        date: "Jul 2022",
+        gallery: [
+            "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
+            "/assets/photography/analog_first_film/IMG_20220710_0006-01.jpeg",
+            "/assets/photography/analog_first_film/IMG_20220710_0011-01.jpeg",
+            "/assets/photography/analog_first_film/R1-00594-0014-01.jpeg"
+        ]
+    },
+    {
+        id: "uppsala-digital",
+        getTitle: () => getTranslated("uppsala-digital", "title"),
+        getDescription: () => getTranslated("uppsala-digital", "description"),
+        getLongDescription: () => getTranslated("uppsala-digital", "longDescription"),
+        image: "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
+        link: "projects/uppsala-digital.html",
+        skills: ["Photography", "Travel", "Architecture"],
+        type: "Personal",
+        date: "Oct 2022",
+        gallery: [
+            "/assets/photography/uppsala_digital/20221013115759_IMG_8472-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013124014_IMG_8493-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131437_IMG_8521-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131630_IMG_8525-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013161731_IMG_8543-01.jpeg"
         ]
     }
 ];
