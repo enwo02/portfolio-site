@@ -29,6 +29,7 @@
   --border-color: rgba(255, 255, 255, 0.1);
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --tag-bg: rgba(255, 255, 255, 0.05);
+  --tag-bg-hover: rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="light"] {
@@ -40,6 +41,7 @@
   --border-color: rgba(0, 0, 0, 0.1);
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --tag-bg: rgba(0, 0, 0, 0.05);
+  --tag-bg-hover: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -163,6 +165,9 @@ body.page-transition.is-loaded {
   position: relative;
   z-index: 2;
   /* Above glider */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lang-btn:hover {
@@ -388,19 +393,18 @@ body.page-transition.is-loaded {
 }
 
 .tag {
-  background: var(--surface-color);
-  color: var(--text-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  background: var(--tag-bg);
+  color: var(--text-secondary);
+  padding: 4px 12px;
+  border-radius: 4px;
   font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s;
   cursor: default;
 }
 
 .tag:hover {
-  border-color: var(--accent-primary);
-  background: rgba(5, 150, 105, 0.1);
+  background: var(--tag-bg-hover);
+  color: var(--text-primary);
   transform: translateY(-2px);
 }
 

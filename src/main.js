@@ -386,8 +386,13 @@ if (languageSwitcher) {
     const updateGlider = (clickedBtn) => {
         const activeBtn = clickedBtn || languageSwitcher.querySelector('.lang-btn.active');
         if (activeBtn && glider) {
-            glider.style.width = `${activeBtn.offsetWidth}px`;
-            glider.style.transform = `translateX(${activeBtn.offsetLeft - 4}px)`; // -4 for parent padding correction
+            const btnRect = activeBtn.getBoundingClientRect();
+            const parentRect = languageSwitcher.getBoundingClientRect();
+            const relativeLeft = btnRect.left - parentRect.left;
+
+            glider.style.width = `${btnRect.width}px`;
+            // Calculate transform based on relative position minus the glider's CSS left offset (4px)
+            glider.style.transform = `translateX(${relativeLeft - 4}px)`;
         }
     };
 
@@ -411,14 +416,31 @@ if (languageSwitcher) {
     };
 
     // Initial update
-    // Small timeout to ensure fonts loaded/layout ready for correct width calc
-    setTimeout(() => updateActiveButton(), 50);
+    const performUpdate = () => {
+        requestAnimationFrame(updateActiveButton);
+    };
 
-    // Update on resize to fix position if layout changes
-    window.addEventListener('resize', () => {
-        const activeBtn = languageSwitcher.querySelector('.lang-btn.active');
-        if (activeBtn) updateGlider(activeBtn);
+    // Wait for fonts
+    document.fonts.ready.then(performUpdate);
+
+    // ResizeObserver to handle any layout changes in the container (font loads, etc.)
+    const resizeObserver = new ResizeObserver(() => {
+        performUpdate();
     });
+    resizeObserver.observe(languageSwitcher);
+
+    // Update on back/forward navigation (pageshow)
+    window.addEventListener('pageshow', () => {
+        performUpdate();
+        // Polling to catch late shifts
+        [50, 150, 300, 500].forEach(delay => setTimeout(performUpdate, delay));
+    });
+
+    // Initial polling to ensure it catches the final state
+    [50, 150, 300, 500].forEach(delay => setTimeout(performUpdate, delay));
+
+    // Update on window resize (fallback)
+    window.addEventListener('resize', performUpdate);
 
     // Add click handlers
     langButtons.forEach(btn => {
