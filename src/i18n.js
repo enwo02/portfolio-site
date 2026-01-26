@@ -13,7 +13,7 @@ const translations = {
             title: 'Elio Wanner',
             subtitle1: 'MSc Student @ ETHZ',
             subtitle2: 'Data Analyst & Cloud Engineer @ Siemens',
-            description: 'Specializing in Electronics, Chip-Design, and Railway Systems.',
+            description: 'Specializing in Electronics and Railway Systems.',
             viewWork: 'View Work',
             contactMe: 'Contact Me'
         },
