@@ -22,36 +22,36 @@ const projectTranslations = {
     },
     'sbb-optimization': {
         en: {
-            title: "Predictive rail switch heating algorithm",
+            title: "Predictive rail switch heating",
             description: "Physics-based predictive heating algorithm to optimize energy consumption for SBB rail switches.",
             longDescription: "Developed a predictive optimization algorithm in Python for SBB to manage heating loads. The solution achieved a 30% reduction in operating costs and improved reliability to over 98%. This project secured 50k CHF in government funding for further development and established a pilot project collaboration."
         },
         de: {
-            title: "Prädiktiver Weichenheizungsalgorithmus",
+            title: "Prädiktive Weichenheizung",
             description: "Physikbasierter prädiktiver Heizalgorithmus zur Optimierung des Energieverbrauchs für SBB-Weichen.",
             longDescription: "Entwicklung eines prädiktiven Optimierungsalgorithmus in Python für die SBB zur Verwaltung von Heizlasten. Die Lösung erreichte eine Kostenreduktion von 30% bei den Betriebskosten und verbesserte die Zuverlässigkeit auf über 98%. Dieses Projekt erhielt 50'000 CHF an staatlicher Förderung für die Weiterentwicklung und etablierte eine Pilotprojekt-Zusammenarbeit."
         },
         fr: {
-            title: "Algorithme de chauffage prédictif des aiguillages ferroviaires",
+            title: "Chauffage prédictif des aiguillages",
             description: "Algorithme de chauffage prédictif basé sur la physique pour optimiser la consommation d'énergie des aiguillages CFF.",
             longDescription: "Développement d'un algorithme d'optimisation prédictif en Python pour les CFF afin de gérer les charges de chauffage. La solution a permis une réduction de 30% des coûts d'exploitation et amélioré la fiabilité à plus de 98%. Ce projet a obtenu 50'000 CHF de financement gouvernemental pour le développement ultérieur et a établi une collaboration de projet pilote."
         }
     },
     'snake-assembly': {
         en: {
-            title: "Snake in Assembly",
-            description: "The classic Snake game implemented entirely in Assembly on an FPGA with LED matrix and motion controls.",
-            longDescription: "For the EE-208 course, we developed a Snake game on a microcontroller in Assembly code. The game is displayed on an 8x8 LED matrix with the score shown on an LCD screen (which persists highscores). Players can control the snake using either an infrared distance sensor for hand-motion control or an infrared remote. The system features custom drivers for hardware input/output and interrupt-based handling."
+            title: "Snake: 100% Assembly 🐍",
+            description: "Classic Snake built entirely in Assembly. No high-level languages, no shortcuts—just pure logic.",
+            longDescription: "Why write a game in a high-level language when you can manually manage every single register? For our Microcontrollers course, we decided to ignore the easy path and write Snake entirely in Assembly. The result? A glorious 8x8 LED matrix display, an LCD for high scores (so your shame persists), and controls that are... unique. You can guide the snake with a standard IR remote, or if you're feeling magical, wave your hands over distance sensors like a low-budget Jedi."
         },
         de: {
-            title: "Snake in Assembly",
-            description: "Das klassische Snake-Spiel, vollständig in Assembly auf einem FPGA mit LED-Matrix und Bewegungssteuerung implementiert.",
-            longDescription: "Für den Kurs EE-208 haben wir ein Snake-Spiel auf einem Mikrocontroller in Assembly-Code entwickelt. Das Spiel wird auf einer 8x8 LED-Matrix angezeigt, wobei die Punktzahl auf einem LCD-Bildschirm angezeigt wird (der Highscores speichert). Spieler können die Schlange entweder über einen Infrarot-Distanzsensor für Handbewegungssteuerung oder eine Infrarot-Fernbedienung steuern. Das System verfügt über benutzerdefinierte Treiber für Hardware-Ein-/Ausgabe und interruptbasierte Verarbeitung."
+            title: "Snake: 100% Assembly 🐍",
+            description: "Das klassische Snake, komplett in Assembly gebaut. Keine high-level Sprachen, keine Shortcuts – nur reine Logik.",
+            longDescription: "Warum ein Spiel in einer Hochsprache schreiben, wenn man jedes einzelne Register manuell verwalten kann? Für unseren Mikrocontroller-Kurs haben wir uns entschieden, den einfachen Weg zu ignorieren und Snake komplett in Assembly zu schreiben. Das Ergebnis? Ein glorreiches 8x8 LED-Matrix-Display, ein LCD für Highscores (damit deine Schande bleibt) und Steuerungen, die... einzigartig sind. Du kannst die Schlange mit einer normalen IR-Fernbedienung steuern oder, wenn du dich magisch fühlst, deine Hände über Abstandssensoren wedeln wie ein Low-Budget-Jedi."
         },
         fr: {
-            title: "Snake en Assembly",
-            description: "Le jeu classique Snake implémenté entièrement en Assembly sur un FPGA avec matrice LED et contrôles de mouvement.",
-            longDescription: "Pour le cours EE-208, nous avons développé un jeu Snake sur un microcontrôleur en code Assembly. Le jeu s'affiche sur une matrice LED 8x8 avec le score affiché sur un écran LCD (qui conserve les meilleurs scores). Les joueurs peuvent contrôler le serpent en utilisant soit un capteur de distance infrarouge pour le contrôle par mouvement de la main, soit une télécommande infrarouge. Le système dispose de pilotes personnalisés pour les entrées/sorties matérielles et la gestion basée sur les interruptions."
+            title: "Snake : 100% Assembly 🐍",
+            description: "Le jeu Snake classique entièrement en Assembly. Pas de langages de haut niveau, pas de raccourcis – juste de la pure logique.",
+            longDescription: "Pourquoi écrire un jeu dans un langage de haut niveau quand on peut gérer manuellement chaque registre ? Pour notre cours de microcontrôleurs, nous avons décidé d'ignorer la facilité et d'écrire Snake entièrement en Assembly. Le résultat ? Une glorieuse matrice LED 8x8, un écran LCD pour les meilleurs scores (pour que la honte persiste), et des contrôles... uniques. Vous pouvez guider le serpent avec une télécommande IR standard, ou si vous vous sentez magique, agiter vos mains au-dessus des capteurs de distance comme un Jedi à petit budget."
         }
     },
     'address-scrambling': {
@@ -73,35 +73,35 @@ const projectTranslations = {
     },
     'hack-the-tracks': {
         en: {
-            title: "Hack the tracks",
-            description: "Genetic algorithm for construction site planning (Hackathon Winner - 25k CHF).",
-            longDescription: "Winning solution for the 'Hack the Tracks' hackathon (25,000 CHF prize). Developed a genetic algorithm for optimizing construction site planning between different transport modes in just 36 hours. Features a Python backend and Streamlit frontend."
+            title: "Hack the Tracks: 36h Chaos",
+            description: "36 hours, 25k CHF prize. A genetic algorithm that optimized construction sites faster than a human ever could.",
+            longDescription: "What happens when you lock a team called 'Biology Meets Rigi' in a room for 36 hours? We build an award-winning optimization engine! We dove into the 'Hack the Tracks' challenge with ambition, using a genetic algorithm to solve the nightmare of coordinating construction sites across all transport networks. Result: 1st place and 25,000 CHF."
         },
         de: {
-            title: "Hack the tracks",
-            description: "Genetischer Algorithmus für Baustellenplanung (Hackathon-Gewinner - 25'000 CHF).",
-            longDescription: "Gewinnerlösung für den 'Hack the Tracks' Hackathon (25'000 CHF Preisgeld). Entwicklung eines genetischen Algorithmus zur Optimierung der Baustellenplanung zwischen verschiedenen Transportmodi in nur 36 Stunden. Beinhaltet ein Python-Backend und Streamlit-Frontend."
+            title: "Hack the Tracks: 36h Chaos",
+            description: "36 Stunden, 25k CHF Preisgeld. Ein genetischer Algorithmus, der Baustellen schneller optimierte, als ein Mensch es je könnte.",
+            longDescription: "Was passiert, wenn man ein Team namens 'Biology Meets Rigi' für 36 Stunden in einen Raum sperrt? Wir bauen eine preisgekrönte Optimierungs-Engine! Wir stürzten uns mit Ehrgeiz in die 'Hack the Tracks'-Challenge und nutzten einen genetischen Algorithmus, um den Albtraum der Koordination von Baustellen über alle Verkehrsnetze hinweg zu lösen. Ergebnis: 1. Platz und 25'000 CHF."
         },
         fr: {
-            title: "Hack the tracks",
-            description: "Algorithme génétique pour la planification de chantiers (Gagnant du Hackathon - 25'000 CHF).",
-            longDescription: "Solution gagnante du hackathon 'Hack the Tracks' (prix de 25'000 CHF). Développement d'un algorithme génétique pour optimiser la planification des chantiers entre différents modes de transport en seulement 36 heures. Comprend un backend Python et une interface Streamlit."
+            title: "Hack the Tracks : 36h de Chaos",
+            description: "36 heures, 25k CHF de prix. Un algo génétique qui a optimisé les chantiers plus vite qu'un humain ne le pourrait.",
+            longDescription: "Que se passe-t-il quand on enferme une équipe appelée 'Biology Meets Rigi' dans une pièce pendant 36 heures ? On construit un moteur d'optimisation primé ! Nous avons plongé dans le défi 'Hack the Tracks' avec ambition, utilisant un algorithme génétique pour résoudre le cauchemar de la coordination des chantiers sur tous les réseaux de transport. Résultat : 1ère place et 25'000 CHF."
         }
     },
     'epfl-spacecraft': {
         en: {
-            title: "EPFL Spacecraft Team",
-            description: "Team leader for a student-built satellite project. Our board was launched into space in Jan 2023.",
+            title: "Rocket Science 🚀",
+            description: "Team leader for a student-built satellite project. Our board was launched into space in January 2023.",
             longDescription: "The EPFL Spacecraft Team is a student association at EPFL causing satellites. I was teamleader for a while and the board I was working on was sent to space in January 2023."
         },
         de: {
-            title: "EPFL Spacecraft Team",
-            description: "Teamleiter für ein von Studenten gebautes Satellitenprojekt. Unsere Platine wurde im Januar 2023 ins All geschickt.",
+            title: "Rocket Science 🚀",
+            description: "Teamleiter für ein von Studenten gebautes Satellitenprojekt. Unser PCB wurde im Januar 2023 ins All geschickt.",
             longDescription: "Das EPFL Spacecraft Team ist eine Studentenvereinigung an der EPFL, die Satelliten baut. Ich war eine Zeit lang Teamleiter und die Platine, an der ich arbeitete, wurde im Januar 2023 ins All geschickt."
         },
         fr: {
-            title: "EPFL Spacecraft Team",
-            description: "Chef d'équipe pour un projet de satellite construit par des étudiants. Notre carte a été lancée dans l'espace en janvier 2023.",
+            title: "Rocket Science 🚀",
+            description: "Chef d'équipe pour un projet de satellite construit par des étudiants. Notre PCB a été lancée dans l'espace en janvier 2023.",
             longDescription: "L'équipe EPFL Spacecraft est une association étudiante de l'EPFL construisant des satellites. J'ai été chef d'équipe pendant un certain temps et la carte sur laquelle je travaillais a été envoyée dans l'espace en janvier 2023."
         }
     },
