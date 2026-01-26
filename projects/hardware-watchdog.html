@@ -122,42 +122,59 @@
 
                 <div class="project-body">
                     <section class="project-section">
-                        <h2>Project Overview</h2>
+                        <h2>The Mission</h2>
                         <p>
-                            This project extends the CROC SoC, a lightweight open-source RISC-V SoC developed at ETH
-                            Zürich, with a hardware watchdog. To improve system robustness during development and
-                            testing, we designed and integrated a single-stage hardware watchdog that detects processor
-                            stalls or bus deadlocks and triggers a chip-wide reset.
+                            This project was part of the <strong>VLSI 2 course at ETH Zurich</strong>. The goal? Take
+                            the CROC SoC (a lightweight RISC-V SoC) and make it bulletproof.
+                            We implemented a hardware watchdog that monitors the system and, upon detecting a freeze or
+                            deadlock, hits the reset button faster than you can say "segfault".
                         </p>
                     </section>
 
                     <section class="project-section">
-                        <h2>Key Features</h2>
-                        <ul>
-                            <li><strong>Robust Fault Detection:</strong> Detects stalls and deadlocks to ensure system
-                                reliability.</li>
-                            <li><strong>System-Wide Reset:</strong> Automatically triggers a reset pulse to return the
-                                SoC to a known-good state.</li>
-                            <li><strong>OBI Wrapper:</strong> Fully integrated with an OBI-protocol wrapper for
-                                memory-mapped access.</li>
-                            <li><strong>Configurable:</strong> Features a configurable timeout and kick register
-                                control.</li>
+                        <h2>The Results</h2>
+                        <p>
+                            Does it work? Absolutely. We threw everything we had at it.
+                        </p>
+                        <ul class="d-list">
+                            <li><strong>32/32 Randomized Tests Passed:</strong> Bulletproof validation.</li>
+                            <li><strong>Simulated Reset Behavior:</strong> Confirmed correct recovery in RTL
+                                simulations.</li>
+                            <li><strong>Physical Design:</strong> DRC and LVS Clean. Zero violations.</li>
+                        </ul>
+
+                        <h3>By the Numbers</h3>
+                        <ul class="d-list">
+                            <li><strong>Watchdog Core Area:</strong> ~3859 µm² (Tiny! Only 0.5% of i_croc)</li>
+                            <li><strong>Total Area (with Wrapper):</strong> ~8582 µm² (Still just 1.1% of i_croc)</li>
+                            <li><strong>Power Impact:</strong> Negligible.</li>
                         </ul>
                     </section>
 
-                    <section class="project-section">
-                        <h2>Results & Impact</h2>
-                        <p>
-                            The implementation was rigorous, passing all 32 randomized test cases and RTL simulations.
-                            The physical design passed DRC and LVS checks with zero violations and minimal area overhead
-                            (~1.1% of the core area).
-                        </p>
-                        <ul>
-                            <li><strong>Area Cost:</strong> Extremely lightweight footprint (~8582 µm² with wrapper).
-                            </li>
-                            <li><strong>Power Impact:</strong> Negligible power consumption impact.</li>
-                        </ul>
-                    </section>
+                    <div class="project-links" style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://github.com/enwo02/VLSI2_Croc_WDT_v2" target="_blank" class="btn"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--text-primary); color: var(--bg-color); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: opacity 0.2s;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            View on GitHub
+                        </a>
+                        <a href="/assets/reports/hardware-watchdog-report.pdf" download class="btn"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--text-primary); color: var(--text-primary); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.2s, color 0.2s;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Report
+                        </a>
+                    </div>
 
                 </div>
             </div>

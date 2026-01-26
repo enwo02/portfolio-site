@@ -35,7 +35,7 @@ const translations = {
         },
         contact: {
             title: "Let's Connect",
-            description: 'Interested in working together? Drop me a line.',
+            description: 'Want to hire me or work together? Drop me a line.',
             getInTouch: 'Get in Touch'
         },
         footer: {
@@ -75,7 +75,7 @@ const translations = {
         },
         contact: {
             title: 'Kontakt aufnehmen',
-            description: 'Interesse an einer Zusammenarbeit? Schreib mir eine Nachricht.',
+            description: 'Willst du mich anstellen oder zusammenarbeiten? Schreib mir eine Nachricht.',
             getInTouch: 'Nachricht senden'
         },
         footer: {
@@ -115,7 +115,7 @@ const translations = {
         },
         contact: {
             title: 'Restons en contact',
-            description: 'Intéressé par une collaboration ? Envoyez-moi un message.',
+            description: "Envie de m'embaucher ou de collaborer ? Envoyez-moi un message.",
             getInTouch: 'Me contacter'
         },
         footer: {

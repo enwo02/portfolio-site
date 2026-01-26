@@ -109,7 +109,7 @@
             <div class="container project-content-container">
                 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 class="project-page-title">Flex-VecPool: Flexible SPM Partitioning on Vectorized MemPool</h1>
+                <h1 class="project-page-title">Flex-VecPool: Smashing the Bandwidth Wall</h1>
 
                 <div class="project-meta">
                     <div class="skill-tags">
@@ -122,56 +122,53 @@
 
                 <div class="project-body">
                     <section class="project-section">
-                        <h2>The Challenge: Bandwidth Wall</h2>
+                        <h2>The Setup: IIS @ ETH Zürich</h2>
                         <p>
-                            Modern many-core SoCs increasingly hit an interconnect-bandwidth wall once hundreds of
-                            vector units stream data from a shared scratch-pad memory (SPM). This creates a bottleneck
-                            that limits performance even when ample compute power is available.
+                            This wasn't just homework; this was a Semester Project at the <strong>Integrated Systems
+                                Laboratory (IIS)</strong> at ETH Zürich, under the supervision of Prof. Luca Benini. The
+                            goal? Push the boundaries of many-core architectures. My work is now being integrated into a
+                            research paper where I'll be listed as a <strong>co-author</strong>.
                         </p>
                     </section>
 
                     <section class="project-section">
-                        <h2>The Solution: Flex-VecPool</h2>
+                        <h2>The Problem: The Bandwidth Wall</h2>
                         <p>
-                            This thesis introduces <strong>Flex-VecPool</strong>, which confronts this challenge by
-                            fusing the run-time address-scrambling engine of Flex-TeraPool with the vectorised core
-                            clusters of MemPool-Spatz. The result is a fully software-transparent SPM that can be
-                            repartitioned to favour locality within each tile.
+                            Modern many-core SoCs are fast, but they have a drinking problem: they can't gulp down data
+                            fast enough. When hundreds of vector units try to access shared memory simultaneously, they
+                            hit a "bandwidth wall." The compute power is there, but the data isn't.
                         </p>
                     </section>
 
                     <section class="project-section">
-                        <h2>Hardware Implementation</h2>
+                        <h2>The Red Box: Flex-VecPool</h2>
                         <p>
-                            The added hardware consists of a lightweight, configurable remapper on every memory port.
-                            Synthesis in GF-12 nm shows a total cell-area increase below <strong>1%</strong> (0.71% on
-                            MemPool, 0.99% on TeraPool), with the largest delta confined to the address cross-bar.
+                            Enter <strong>Flex-VecPool</strong> (the red box in the diagram). By fusing the run-time
+                            address-scrambling engine of Flex-TeraPool with the vectorized core clusters of
+                            MemPool-Spatz, I created a fully transparent Scratch-Pad Memory (SPM) that reconfigures
+                            itself on the fly. It's like rearranging the library while people are still reading books—to
+                            make sure everyone finds what they need instantly.
                         </p>
+                        <figure class="project-image-figure">
+                            <img src="../flex-vecpool-architecture.png" alt="Flex-VecPool Architecture Quadrants"
+                                class="content-image rounded shadow">
+                            <figcaption>The Design Space: Flex-VecPool (Red) combines the best of both worlds.
+                            </figcaption>
+                        </figure>
                     </section>
 
                     <section class="project-section">
-                        <h2>Performance Results</h2>
+                        <h2>Big Gains, Tiny Cost</h2>
                         <p>
-                            Benchmarking four kernels across three system sizes (4–128 cores) demonstrates that
-                            locality-aware folding delivers large, workload-selective gains.
+                            The hardware overhead for this magic? <strong>Less than 1%</strong> silicon area. But the
+                            payoff is massive:
                         </p>
                         <ul>
-                            <li><strong>Dot Product:</strong> Speed-ups reach <strong>4.6×</strong> on a 128-core
-                                TeraPool and 69% fewer cycles on a 64-core MemPool.</li>
-                            <li><strong>GEMV:</strong> Up to a <strong>66%</strong> cycle reduction.</li>
-                            <li><strong>Impact:</strong> FPU-utilisation jumps from 5% to 22% for Dot Product and from
-                                12% to 36% for GEMV on large clusters.</li>
+                            <li><strong>4.6x Faster</strong> Dot Product on TeraPool.</li>
+                            <li><strong>3.0x Faster</strong> GEMV (General Matrix-Vector Multiplication).</li>
+                            <li><strong>Seamless Scaling</strong> from small MinPool clusters to massive TeraPool
+                                systems.</li>
                         </ul>
-                    </section>
-
-                    <section class="project-section">
-                        <h2>Conclusion</h2>
-                        <p>
-                            Overall, Flex-VecPool shows that a &lt; 1% area investment in dynamic SPM partitioning can
-                            unlock multi-fold performance gains for bandwidth-dominated, sequential workloads
-                            without modifying existing software, and it scales seamlessly from MinPool up to the
-                            large TeraPool system.
-                        </p>
                     </section>
                 </div>
             </div>

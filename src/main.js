@@ -56,34 +56,34 @@ const projectTranslations = {
     },
     'address-scrambling': {
         en: {
-            title: "Flex-VecPool: Flexible SPM Partitioning",
-            description: "Software-transparent SPM repartitioning for vectorized many-core SoCs, achieving 4.6x speedup.",
-            longDescription: "Introduced Flex-VecPool, fusing address-scrambling with vectorized core clusters. Features a lightweight remapper (<1% area) that enables locality-aware folding. Achieved 4.6x speedup in Dot Product and 66% cycle reduction in GEMV."
+            title: "Flex-VecPool: Research",
+            description: "Smashing the bandwidth wall with <1% area overhead. 4.6x speedup. Co-authored paper forthcoming.",
+            longDescription: "Semester Project at ETH Zürich (IIS) under Prof. Luca Benini. I fused address scrambling with vector cores to create 'Flex-VecPool'—a transparent SPM that reconfigures on the fly. Result? 4.6x faster Dot Product and 3.0x faster GEMV, all with less than 1% area overhead."
         },
         de: {
-            title: "Flex-VecPool: Flexible SPM-Partitionierung",
-            description: "Softwaretransparente SPM-Repartitionierung für vektorisierte Many-Core-SoCs mit 4,6-facher Beschleunigung.",
-            longDescription: "Einführung von Flex-VecPool, das Address-Scrambling mit vektorisierten Core-Clustern verbindet. Bietet einen leichtgewichtigen Remapper (<1% Fläche), der lokalitätsbewusstes Folding ermöglicht. Erreichte 4,6-fache Beschleunigung beim Dot Product und 66% Zyklenreduktion bei GEMV."
+            title: "Flex-VecPool: Forschung",
+            description: "Durchbrechen der Bandbreiten-Mauer mit <1% Flächenaufwand. 4.6x Speedup. Co-Autor Paper folgt.",
+            longDescription: "Semesterprojekt an der ETH Zürich (IIS) bei Prof. Luca Benini. Ich habe Adress-Scrambling mit Vektorkernen verschmolzen, um 'Flex-VecPool' zu schaffen – einen transparenten SPM, der sich zur Laufzeit rekonfiguriert. Ergebnis? 4.6x schnelleres Dot Product und 3.0x schnelleres GEMV, bei weniger als 1% Flächenaufwand."
         },
         fr: {
-            title: "Flex-VecPool : Partitionnement SPM flexible",
-            description: "Repartitionnement SPM transparent pour le logiciel pour SoC multi-cœurs vectorisés, atteignant une accélération de 4,6x.",
-            longDescription: "Présentation de Flex-VecPool, fusionnant le brouillage d'adresses avec des clusters de cœurs vectorisés. Dispose d'un remappeur léger (<1% de surface) qui permet le pliage conscient de la localité. A atteint une accélération de 4,6x pour le produit scalaire et une réduction de 66% des cycles pour GEMV."
+            title: "Flex-VecPool : Recherche",
+            description: "Briser le mur de la bande passante avec <1% de surface. Accélération de 4.6x. Co-auteur d'un papier à venir.",
+            longDescription: "Projet de semestre à l'ETH Zurich (IIS) sous le Prof. Luca Benini. J'ai fusionné le brouillage d'adresses avec des cœurs vectoriels pour créer 'Flex-VecPool' — une SPM transparente qui se reconfigure à la volée. Résultat ? Produit scalaire 4.6x plus rapide et GEMV 3.0x plus rapide, le tout avec moins de 1% de surface supplémentaire."
         }
     },
     'hack-the-tracks': {
         en: {
-            title: "Hack the Tracks: 36h Chaos",
+            title: "Hack the Tracks",
             description: "36 hours, 25k CHF prize. A genetic algorithm that optimized construction sites faster than a human ever could.",
             longDescription: "What happens when you lock a team called 'Biology Meets Rigi' in a room for 36 hours? We build an award-winning optimization engine! We dove into the 'Hack the Tracks' challenge with ambition, using a genetic algorithm to solve the nightmare of coordinating construction sites across all transport networks. Result: 1st place and 25,000 CHF."
         },
         de: {
-            title: "Hack the Tracks: 36h Chaos",
+            title: "Hack the Tracks",
             description: "36 Stunden, 25k CHF Preisgeld. Ein genetischer Algorithmus, der Baustellen schneller optimierte, als ein Mensch es je könnte.",
             longDescription: "Was passiert, wenn man ein Team namens 'Biology Meets Rigi' für 36 Stunden in einen Raum sperrt? Wir bauen eine preisgekrönte Optimierungs-Engine! Wir stürzten uns mit Ehrgeiz in die 'Hack the Tracks'-Challenge und nutzten einen genetischen Algorithmus, um den Albtraum der Koordination von Baustellen über alle Verkehrsnetze hinweg zu lösen. Ergebnis: 1. Platz und 25'000 CHF."
         },
         fr: {
-            title: "Hack the Tracks : 36h de Chaos",
+            title: "Hack the Tracks",
             description: "36 heures, 25k CHF de prix. Un algo génétique qui a optimisé les chantiers plus vite qu'un humain ne le pourrait.",
             longDescription: "Que se passe-t-il quand on enferme une équipe appelée 'Biology Meets Rigi' dans une pièce pendant 36 heures ? On construit un moteur d'optimisation primé ! Nous avons plongé dans le défi 'Hack the Tracks' avec ambition, utilisant un algorithme génétique pour résoudre le cauchemar de la coordination des chantiers sur tous les réseaux de transport. Résultat : 1ère place et 25'000 CHF."
         }
@@ -380,20 +380,45 @@ attachSkillHoverListeners();
 const languageSwitcher = document.getElementById('language-switcher');
 if (languageSwitcher) {
     const langButtons = languageSwitcher.querySelectorAll('.lang-btn');
+    const glider = languageSwitcher.querySelector('.lang-glider');
+
+    // Function to update glider position
+    const updateGlider = (clickedBtn) => {
+        const activeBtn = clickedBtn || languageSwitcher.querySelector('.lang-btn.active');
+        if (activeBtn && glider) {
+            glider.style.width = `${activeBtn.offsetWidth}px`;
+            glider.style.transform = `translateX(${activeBtn.offsetLeft - 4}px)`; // -4 for parent padding correction
+        }
+    };
 
     // Set initial active state
     const updateActiveButton = () => {
         const currentLang = i18n.getLanguage();
+        let activeBtn = null;
+
         langButtons.forEach(btn => {
             if (btn.dataset.lang === currentLang) {
                 btn.classList.add('active');
+                activeBtn = btn;
             } else {
                 btn.classList.remove('active');
             }
         });
+
+        if (activeBtn) {
+            updateGlider(activeBtn);
+        }
     };
 
-    updateActiveButton();
+    // Initial update
+    // Small timeout to ensure fonts loaded/layout ready for correct width calc
+    setTimeout(() => updateActiveButton(), 50);
+
+    // Update on resize to fix position if layout changes
+    window.addEventListener('resize', () => {
+        const activeBtn = languageSwitcher.querySelector('.lang-btn.active');
+        if (activeBtn) updateGlider(activeBtn);
+    });
 
     // Add click handlers
     langButtons.forEach(btn => {
@@ -402,6 +427,7 @@ if (languageSwitcher) {
             i18n.setLanguage(newLang);
             updateActiveButton();
             updateTranslations();
+            updateGlider(btn);
         });
     });
 

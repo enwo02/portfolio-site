@@ -28,6 +28,7 @@
 
   --border-color: rgba(255, 255, 255, 0.1);
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tag-bg: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="light"] {
@@ -38,6 +39,7 @@
   --text-secondary: #64748b;
   --border-color: rgba(0, 0, 0, 0.1);
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tag-bg: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -128,6 +130,23 @@ body.page-transition.is-loaded {
   padding: 4px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  /* For glider positioning */
+  padding: 4px;
+  /* Ensure padding for glider to move within */
+  z-index: 10;
+}
+
+.lang-glider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: var(--accent-gradient);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
+  /* Width and Transform set by JS */
 }
 
 .lang-btn {
@@ -141,6 +160,9 @@ body.page-transition.is-loaded {
   border-radius: 16px;
   transition: all var(--transition-speed);
   font-family: var(--font-main);
+  position: relative;
+  z-index: 2;
+  /* Above glider */
 }
 
 .lang-btn:hover {
@@ -149,7 +171,7 @@ body.page-transition.is-loaded {
 }
 
 .lang-btn.active {
-  background: var(--accent-gradient);
+  /* background handled by glider */
   color: white;
 }
 
@@ -528,7 +550,7 @@ body.page-transition.is-loaded {
 .mini-tag {
   font-size: 0.75rem;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--tag-bg);
   padding: 2px 8px;
   border-radius: 4px;
 }
@@ -547,7 +569,7 @@ body.page-transition.is-loaded {
 /* Contact */
 .contact-card {
   background: var(--surface-color);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   padding: var(--spacing-lg);
   border-radius: 24px;
   text-align: center;
@@ -557,6 +579,10 @@ body.page-transition.is-loaded {
 
 .contact-card .btn {
   margin-top: var(--spacing-md);
+}
+
+.contact-card .section-title::after {
+  display: none;
 }
 
 .social-links {
@@ -775,4 +801,14 @@ body.page-transition.is-loaded {
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-top: var(--spacing-xs);
+}
+
+/* Bullet list indentation fix */
+.d-list {
+  padding-left: 20px;
+  list-style-position: outside;
+}
+
+.d-list li {
+  margin-bottom: 0.5rem;
 }
