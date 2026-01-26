@@ -18,11 +18,17 @@
         :root {
             --bg-color: #0d0d0d;
             --text-primary: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-text: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
         }
 
         [data-theme="light"] {
             --bg-color: #f8fafc;
             --text-primary: #0f172a;
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --card-text: rgba(0, 0, 0, 0.7);
+            --card-border: rgba(0, 0, 0, 0.2);
         }
 
         body {
@@ -109,7 +115,10 @@
             <div class="container project-content-container">
                 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-                <h1 class="project-page-title">Predictive rail switch heating algorithm</h1>
+                <h1 class="project-page-title">Predictive rail switch heating</h1>
+                <p style="text-align: left; font-size: 1.1rem; margin-top: -0.5rem; margin-bottom: 2rem; opacity: 0.8;">
+                    6-month internship at SBB (Swiss Federal Railways)
+                </p>
 
                 <div class="project-meta">
                     <div class="skill-tags">
@@ -122,48 +131,105 @@
 
                 <div class="project-body">
                     <section class="project-section">
-                        <h2>The Challenge</h2>
+                        <h2>The Mission</h2>
                         <p>
-                            Rail switches require heating to remain operational in freezing conditions. However,
-                            traditional heating systems often operate inefficiently, consuming significant power even
-                            when not strictly necessary. The goal was to optimize this energy consumption without
-                            compromising the reliability of the rail network.
+                            Rail switches need to stay ice-free in winter, or trains can't switch tracks. Simple enough,
+                            right?
+                            The catch: traditional heating systems pre-heat the switches in the morning or heat to high
+                            tempertures,
+                            burning energy like there's no tomorrow—even when it's not necessary.
+                            The challenge? Cut the waste without freezing the switches.
                         </p>
                     </section>
 
                     <section class="project-section">
-                        <h2>Physics-Based Prediction</h2>
+                        <h2>The Solution: Physics Meets Prediction</h2>
                         <p>
-                            I developed a physics model of the railroad infrastructure to predict how rail temperature
-                            changes over time. By looking ahead a couple of hours, the algorithm determines exactly when
-                            heating is required to maintain switch availability. This proactive approach ensures the
-                            switch is heated only when necessary, avoiding wasteful energy usage during borderline
-                            conditions.
+                            I built a physics-based model that predicts rail temperatures a few hours ahead. Think of it
+                            as a
+                            weather forecast, but for metal tracks. The algorithm looks into the future, figures out
+                            exactly when
+                            heating is needed, and only fires up the system then. No more guesswork, no more wasted
+                            energy during
+                            those borderline "maybe it'll freeze?" moments.
                         </p>
                     </section>
 
                     <section class="project-section">
-                        <h2>Pilot Success & Impact</h2>
+                        <h2>The Results: Pilot Project Win</h2>
                         <p>
-                            The algorithm was implemented in a pilot project where it demonstrated a large percentage
-                            reduction in power consumption. Its success proved that predictive heating is a viable path
-                            forward for sustainable rail infrastructure.
+                            Does it work? Absolutely. We ran a side-by-side comparison against the traditional heating
+                            algorithm
+                            in a real-world pilot project, and the numbers speak for themselves:
                         </p>
-                        <ul>
-                            <li><strong>Energy Savings:</strong> Significant reduction in power usage compared to
-                                traditional control methods.</li>
-                            <li><strong>Government Funding:</strong> The project's success and potential impact secured
-                                government funding for further development.</li>
+                        <ul class="d-list">
+                            <li><strong>24% Energy Cost Savings:</strong> Compared to the old system. That's real money
+                                saved
+                                and a serious dent in carbon emissions.</li>
+                            <li><strong>99.87% Reliability:</strong> The switches stayed operational when needed. No
+                                frozen
+                                tracks, no delays, no angry commuters.</li>
+                            <li><strong>Smart Load Management:</strong> The system heats when trains are using less
+                                power,
+                                smoothing out demand spikes and making the grid happier.</li>
                         </ul>
                     </section>
 
                     <section class="project-section">
-                        <h2>Smart Load Management</h2>
+                        <h2>Collaboration & Real-World Implementation</h2>
                         <p>
-                            Beyond energy savings, the algorithm also improves load management. Effective distribution
-                            of the electrical load is critical for the "Taktfahrplan" (interval timetable). By
-                            predicting heating needs, the system can distribute the load more intelligently, preventing
-                            peak demand spikes and ensuring smoother grid operation.
+                            This wasn't just a solo coding adventure. I worked closely with the team that would actually
+                            <em>use</em> this thing—making sure the UI made sense and the functionality covered
+                            everything they needed. No ivory tower solutions here.
+                        </p>
+                        <p>
+                            I also teamed up with external partners to get the pilot project installed and running.
+                            Getting your hands dirty (and wearing a safety vest) is part of the job.
+                            Check out the photos below from the installation!
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Behind the Scenes: Installation & Hardware</h2>
+                        <p>
+                            Here's a glimpse of the pilot project in action—from the lab setup to on-site installation:
+                        </p>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                            <div
+                                style="border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border);">
+                                <img src="../sbb-me-at-pilot.jpg" alt="Me during pilot installation"
+                                    style="width: 100%; height: 250px; object-fit: cover;">
+                                <p style="padding: 1rem; margin: 0; font-size: 0.9rem; color: var(--card-text);">
+                                    On-site during the pilot installation. 🦺
+                                </p>
+                            </div>
+                            <div
+                                style="border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border);">
+                                <img src="../sbb-switch-heater.jpg" alt="Rail switch heater in lab"
+                                    style="width: 100%; height: 250px; object-fit: cover;">
+                                <p style="padding: 1rem; margin: 0; font-size: 0.9rem; color: var(--card-text);">
+                                    Lab setup: rail switch heater ready for testing.
+                                </p>
+                            </div>
+                            <div
+                                style="border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border);">
+                                <img src="../sbb-switch-on-site.jpg" alt="Rail switch on site"
+                                    style="width: 100%; height: 250px; object-fit: cover;">
+                                <p style="padding: 1rem; margin: 0; font-size: 0.9rem; color: var(--card-text);">
+                                    The real deal: rail switch in its natural habitat.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>What's Next?</h2>
+                        <p>
+                            The pilot's success opened doors. The project secured government funding for further
+                            development, and the algorithm is on track to be deployed more widely.
+                            Sustainable rail infrastructure? Check.
                         </p>
                     </section>
                 </div>

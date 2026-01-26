@@ -5,17 +5,17 @@ import { i18n } from './i18n.js'
 const projectTranslations = {
     'hardware-watchdog': {
         en: {
-            title: "Implementation of a hardware watchdog",
+            title: "Hardware Watchdog",
             description: "Hardware watchdog integration for CROC SoC to improve robustness.",
             longDescription: "Integrated a hardware watchdog into the CROC SoC to detect processor stalls and deadlocks. Features a configurable timeout, OBI-protocol wrapper, and system-wide reset. Validated with randomized test cases and zero physical design violations."
         },
         de: {
-            title: "Implementierung eines Hardware-Watchdogs",
+            title: "Hardware Watchdog",
             description: "Hardware-Watchdog-Integration für CROC SoC zur Verbesserung der Robustheit.",
             longDescription: "Integration eines Hardware-Watchdogs in den CROC SoC zur Erkennung von Prozessorstillständen und Deadlocks. Funktionen umfassen konfigurierbares Timeout, OBI-Protokoll-Wrapper und systemweiten Reset. Validiert mit randomisierten Testfällen und null Verletzungen im physischen Design."
         },
         fr: {
-            title: "Implémentation d'un watchdog matériel",
+            title: "Hardware Watchdog",
             description: "Intégration de watchdog matériel pour le SoC CROC afin d'améliorer la robustesse.",
             longDescription: "Intégration d'un watchdog matériel dans le SoC CROC pour détecter les blocages et deadlocks du processeur. Dispose d'un timeout configurable, d'un wrapper de protocole OBI et d'une réinitialisation système. Validé avec des cas de test randomisés et zéro violation de conception physique."
         }
