@@ -66,6 +66,48 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* Watchdog Easter Egg */
+        #watchdog-easter-egg {
+            position: fixed;
+            bottom: -200px;
+            left: 20px;
+            width: 180px;
+            height: 180px;
+            z-index: 9999;
+            pointer-events: none;
+            transition: bottom 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #watchdog-easter-egg.visible {
+            bottom: -55px;
+        }
+
+        #watchdog-easter-egg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes bark {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-8px) rotate(-3deg);
+            }
+
+            75% {
+                transform: translateY(-8px) rotate(3deg);
+            }
+        }
+
+        #watchdog-easter-egg.barking {
+            animation: bark 0.4s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -185,7 +227,64 @@
         </footer>
     </div>
 
+    <!-- Watchdog Easter Egg -->
+    <div id="watchdog-easter-egg">
+        <img id="watchdog-img" src="../watchdog-peeking.png" alt="Watchdog">
+    </div>
+
     <script type="module" src="/src/main.js"></script>
+    <script>
+        // Watchdog Easter Egg Logic
+        (function () {
+            let inactivityTimer = null;
+            let barkTimer = null;
+            const watchdog = document.getElementById('watchdog-easter-egg');
+            const watchdogImg = document.getElementById('watchdog-img');
+            const INACTIVITY_DELAY = 3000; // 3 seconds
+            const BARK_DELAY = 3000; // 3 seconds after appearing
+
+            function showWatchdog() {
+                watchdog.classList.add('visible');
+                // Set timer to start barking after another 3 seconds
+                barkTimer = setTimeout(startBarking, BARK_DELAY);
+            }
+
+            function hideWatchdog() {
+                watchdog.classList.remove('visible', 'barking');
+                watchdogImg.src = '../watchdog-peeking.png';
+                clearTimeout(barkTimer);
+            }
+
+            function startBarking() {
+                watchdog.classList.add('barking');
+                watchdogImg.src = '../watchdog-barking.png';
+            }
+
+            function resetInactivityTimer() {
+                // Clear existing timers
+                clearTimeout(inactivityTimer);
+                clearTimeout(barkTimer);
+
+                // Hide watchdog if visible
+                if (watchdog.classList.contains('visible')) {
+                    hideWatchdog();
+                }
+
+                // Start new inactivity timer
+                inactivityTimer = setTimeout(showWatchdog, INACTIVITY_DELAY);
+            }
+
+            // Listen for user activity
+            document.addEventListener('mousemove', resetInactivityTimer);
+            document.addEventListener('mousedown', resetInactivityTimer);
+            document.addEventListener('keydown', resetInactivityTimer);
+            document.addEventListener('scroll', resetInactivityTimer);
+            document.addEventListener('touchstart', resetInactivityTimer);
+
+            // Initialize the timer
+            resetInactivityTimer();
+        })();
+    </script>
 </body>
 
 </html>
