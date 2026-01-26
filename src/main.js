@@ -256,25 +256,39 @@ const projects = [
 // Art Projects Data
 const artProjects = [
     {
-        id: "lautsprecher-wasser",
-        getTitle: () => getTranslated("lautsprecher-wasser", "title"),
-        getDescription: () => getTranslated("lautsprecher-wasser", "description"),
-        getLongDescription: () => getTranslated("lautsprecher-wasser", "longDescription"),
-        image: "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
-        link: "projects/lautsprecher-wasser.html",
-        skills: ["Photography", "High-speed", "Art"],
+        id: "uppsala-digital",
+        getTitle: () => getTranslated("uppsala-digital", "title"),
+        getDescription: () => getTranslated("uppsala-digital", "description"),
+        getLongDescription: () => getTranslated("uppsala-digital", "longDescription"),
+        image: "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
+        link: "projects/uppsala-digital.html",
+        skills: ["Photography", "Travel", "Architecture"],
         type: "Personal",
-        date: "Feb 2020",
+        date: "Oct 2022",
         gallery: [
-            "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7530-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7531-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303144302_IMG_7577-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303144303_IMG_7580-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303144754_IMG_7627-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7652-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7655-01.jpeg",
-            "/assets/photography/lautsprecher_wasser/20200303145627_IMG_7660-01.jpeg"
+            "/assets/photography/uppsala_digital/20221013115759_IMG_8472-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013124014_IMG_8493-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131437_IMG_8521-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131630_IMG_8525-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
+            "/assets/photography/uppsala_digital/20221013161731_IMG_8543-01.jpeg"
+        ]
+    },
+    {
+        id: "analog-first-film",
+        getTitle: () => getTranslated("analog-first-film", "title"),
+        getDescription: () => getTranslated("analog-first-film", "description"),
+        getLongDescription: () => getTranslated("analog-first-film", "longDescription"),
+        image: "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
+        link: "projects/analog-first-film.html",
+        skills: ["Photography", "Film", "Analog"],
+        type: "Personal",
+        date: "Jul 2022",
+        gallery: [
+            "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
+            "/assets/photography/analog_first_film/IMG_20220710_0006-01.jpeg",
+            "/assets/photography/analog_first_film/IMG_20220710_0011-01.jpeg",
+            "/assets/photography/analog_first_film/R1-00594-0014-01.jpeg"
         ]
     },
     {
@@ -300,39 +314,25 @@ const artProjects = [
         ]
     },
     {
-        id: "analog-first-film",
-        getTitle: () => getTranslated("analog-first-film", "title"),
-        getDescription: () => getTranslated("analog-first-film", "description"),
-        getLongDescription: () => getTranslated("analog-first-film", "longDescription"),
-        image: "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
-        link: "projects/analog-first-film.html",
-        skills: ["Photography", "Film", "Analog"],
+        id: "lautsprecher-wasser",
+        getTitle: () => getTranslated("lautsprecher-wasser", "title"),
+        getDescription: () => getTranslated("lautsprecher-wasser", "description"),
+        getLongDescription: () => getTranslated("lautsprecher-wasser", "longDescription"),
+        image: "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
+        link: "projects/lautsprecher-wasser.html",
+        skills: ["Photography", "High-speed", "Art"],
         type: "Personal",
-        date: "Jul 2022",
+        date: "Feb 2020",
         gallery: [
-            "/assets/photography/analog_first_film/IMG_20220710_0004-01.jpeg",
-            "/assets/photography/analog_first_film/IMG_20220710_0006-01.jpeg",
-            "/assets/photography/analog_first_film/IMG_20220710_0011-01.jpeg",
-            "/assets/photography/analog_first_film/R1-00594-0014-01.jpeg"
-        ]
-    },
-    {
-        id: "uppsala-digital",
-        getTitle: () => getTranslated("uppsala-digital", "title"),
-        getDescription: () => getTranslated("uppsala-digital", "description"),
-        getLongDescription: () => getTranslated("uppsala-digital", "longDescription"),
-        image: "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
-        link: "projects/uppsala-digital.html",
-        skills: ["Photography", "Travel", "Architecture"],
-        type: "Personal",
-        date: "Oct 2022",
-        gallery: [
-            "/assets/photography/uppsala_digital/20221013115759_IMG_8472-01.jpeg",
-            "/assets/photography/uppsala_digital/20221013124014_IMG_8493-01.jpeg",
-            "/assets/photography/uppsala_digital/20221013131437_IMG_8521-01.jpeg",
-            "/assets/photography/uppsala_digital/20221013131630_IMG_8525-01.jpeg",
-            "/assets/photography/uppsala_digital/20221013131824_IMG_8527-01.jpeg",
-            "/assets/photography/uppsala_digital/20221013161731_IMG_8543-01.jpeg"
+            "/assets/photography/lautsprecher_wasser/20200219184848_IMG_7489-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7530-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200219185127_IMG_7531-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144302_IMG_7577-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144303_IMG_7580-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303144754_IMG_7627-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7652-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145625_IMG_7655-01.jpeg",
+            "/assets/photography/lautsprecher_wasser/20200303145627_IMG_7660-01.jpeg"
         ]
     }
 ];
