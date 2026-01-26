@@ -36,7 +36,7 @@ const translations = {
         contact: {
             title: "Let's Connect",
             description: 'Want to hire me or work together? Drop me a line.',
-            getInTouch: 'Get in Touch'
+            getInTouch: 'Email me'
         },
         footer: {
             copyright: '© 2026 Elio Wanner. All rights reserved.'
@@ -53,7 +53,7 @@ const translations = {
             title: 'Elio Wanner',
             subtitle1: 'MSc Student @ ETHZ',
             subtitle2: 'Datenanalyst & Cloud Engineer @ Siemens',
-            description: 'Spezialisiert auf Elektronik, Chip-Design und Bahn Systeme.',
+            description: 'Spezialisiert auf Elektronik und Bahnsysteme.',
             viewWork: 'Projekte ansehen',
             contactMe: 'Kontakt aufnehmen'
         },
@@ -76,7 +76,7 @@ const translations = {
         contact: {
             title: 'Kontakt aufnehmen',
             description: 'Willst du mich anstellen oder zusammenarbeiten? Schreib mir eine Nachricht.',
-            getInTouch: 'Nachricht senden'
+            getInTouch: 'E-Mail senden'
         },
         footer: {
             copyright: '© 2026 Elio Wanner. Alle Rechte vorbehalten.'
@@ -93,7 +93,7 @@ const translations = {
             title: 'Elio Wanner',
             subtitle1: 'Étudiant MSc @ ETHZ',
             subtitle2: 'Analyste de données & Ingénieur Cloud @ Siemens',
-            description: 'Spécialisé en électronique, chip-design et systèmes ferroviaires.',
+            description: 'Spécialisé en électronique et systèmes ferroviaires.',
             viewWork: 'Voir les projets',
             contactMe: 'Me contacter'
         },
@@ -116,7 +116,7 @@ const translations = {
         contact: {
             title: 'Restons en contact',
             description: "Envie de m'embaucher ou de collaborer ? Envoyez-moi un message.",
-            getInTouch: 'Me contacter'
+            getInTouch: 'Envoyer un e-mail'
         },
         footer: {
             copyright: '© 2026 Elio Wanner. Tous droits réservés.'
