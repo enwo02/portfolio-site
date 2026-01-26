@@ -608,7 +608,12 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
 
 
+import { initAvatarEffect } from './avatar-effect.js';
+
 // Shared Logic (Theme, Cursor, Nav)
+// Initialize Avatar Effect
+initAvatarEffect();
+
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 
