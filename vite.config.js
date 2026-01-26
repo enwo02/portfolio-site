@@ -15,6 +15,8 @@ export default defineConfig({
                 'epfl-spacecraft': resolve(__dirname, 'projects/epfl-spacecraft.html'),
                 'lautsprecher-wasser': resolve(__dirname, 'projects/lautsprecher-wasser.html'),
                 'light-pendulum': resolve(__dirname, 'projects/light-pendulum.html'),
+                'uppsala-digital': resolve(__dirname, 'projects/uppsala-digital.html'),
+                'analog-first-film': resolve(__dirname, 'projects/analog-first-film.html'),
             },
         },
     },
