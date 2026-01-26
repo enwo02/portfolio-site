@@ -156,7 +156,7 @@ const projects = [
         getLongDescription: () => getTranslated("hardware-watchdog", "longDescription"),
         image: "/hardware-watchdog.png",
         link: "projects/hardware-watchdog.html",
-        skills: ["SystemVerilog", "RISC-V", "FPGA", "Hardware Verification"],
+        skills: ["SystemVerilog", "RISC-V", "FPGA", "Hardware Verification", "Git"],
         type: "ETH",
         date: "Jun 2025"
     },
@@ -167,7 +167,7 @@ const projects = [
         getLongDescription: () => getTranslated("sbb-optimization", "longDescription"),
         image: "/sbb-predictive-heating.png",
         link: "projects/sbb-optimization.html",
-        skills: ["Python", "Physics Modeling", "Optimization", "Energy Efficiency"],
+        skills: ["Python", "Physics Modeling", "Optimization", "Energy Efficiency", "REST API", "Git"],
         type: "SBB",
         date: "Jan 2024"
     },
@@ -178,7 +178,7 @@ const projects = [
         getLongDescription: () => getTranslated("snake-assembly", "longDescription"),
         image: "/snake-assembly.png",
         link: "projects/snake-assembly.html",
-        skills: ["Assembly", "FPGA", "Drivers", "Microcontrollers"],
+        skills: ["Assembly", "FPGA", "Drivers", "Microcontrollers", "Git"],
         video: "ql-HQcmxW4Q",
         gallery: ["/snake-structure.png", "/snake-hardware.png"],
         type: "EPFL",
@@ -191,7 +191,7 @@ const projects = [
         getLongDescription: () => getTranslated("address-scrambling", "longDescription"),
         image: "/flex-vecpool.png",
         link: "projects/address-scrambling.html",
-        skills: ["SystemVerilog", "Computer Architecture", "Many-Core", "Optimization"],
+        skills: ["SystemVerilog", "Computer Architecture", "Many-Core", "Optimization", "Git"],
         type: "ETH",
         date: "Jun 2025"
     },
@@ -202,7 +202,7 @@ const projects = [
         getLongDescription: () => getTranslated("hack-the-tracks", "longDescription"),
         image: "/hack-the-tracks-team.jpg",
         link: "projects/hack-the-tracks.html",
-        skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit"],
+        skills: ["Python", "Genetic Algorithm", "Optimization", "Streamlit", "Git"],
         date: "Jan 2026"
     },
     {
@@ -212,7 +212,7 @@ const projects = [
         getLongDescription: () => getTranslated("epfl-spacecraft", "longDescription"),
         image: "/est-logo.png",
         link: "projects/epfl-spacecraft.html",
-        skills: ["PCB Design", "Leadership", "Space Systems", "Electronics"],
+        skills: ["PCB Design", "Leadership", "Space Systems", "Electronics", "Altium Designer", "Git"],
         type: "EPFL",
         date: "Jan 2023",
         gallery: ["/est-bunny-front.jpg", "/est-bunny-back.jpg", "/est-sd-cards.png"]
@@ -346,29 +346,89 @@ renderProjects(photographyContainer, artProjects);
 const attachSkillHoverListeners = () => {
     const skillTags = document.querySelectorAll('.skill-tags .tag');
     const projectCards = document.querySelectorAll('.project-card');
+    let activeSkill = null;
+
+    // Function to clear active skill
+    const clearActiveSkill = () => {
+        activeSkill = null;
+        skillTags.forEach(t => t.classList.remove('active'));
+        projectCards.forEach(card => {
+            card.classList.remove('highlight', 'dim');
+        });
+    };
 
     if (skillTags.length > 0 && projectCards.length > 0) {
         skillTags.forEach(tag => {
-            tag.addEventListener('mouseenter', () => {
+            // Click handler for toggle functionality
+            tag.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent document click handler
                 const skillName = tag.textContent.trim();
 
-                projectCards.forEach(card => {
-                    const cardSkills = JSON.parse(card.dataset.skills || '[]');
-                    if (cardSkills.includes(skillName)) {
-                        card.classList.add('highlight');
-                        card.classList.remove('dim');
-                    } else {
-                        card.classList.add('dim');
-                        card.classList.remove('highlight');
+                // If clicking the already active skill, deactivate it
+                if (activeSkill === skillName) {
+                    clearActiveSkill();
+                } else {
+                    // Deactivate previous skill if any
+                    skillTags.forEach(t => t.classList.remove('active'));
+
+                    // Activate new skill
+                    activeSkill = skillName;
+                    tag.classList.add('active');
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        const cardSkills = JSON.parse(card.dataset.skills || '[]');
+                        if (cardSkills.includes(skillName)) {
+                            card.classList.add('highlight');
+                            card.classList.remove('dim');
+                        } else {
+                            card.classList.add('dim');
+                            card.classList.remove('highlight');
+                        }
+                    });
+
+                    // Smooth scroll to projects section
+                    const projectsSection = document.getElementById('projects');
+                    if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                });
+                }
+            });
+
+            // Hover handlers (only work when no skill is actively selected)
+            tag.addEventListener('mouseenter', () => {
+                if (activeSkill === null) {
+                    const skillName = tag.textContent.trim();
+
+                    projectCards.forEach(card => {
+                        const cardSkills = JSON.parse(card.dataset.skills || '[]');
+                        if (cardSkills.includes(skillName)) {
+                            card.classList.add('highlight');
+                            card.classList.remove('dim');
+                        } else {
+                            card.classList.add('dim');
+                            card.classList.remove('highlight');
+                        }
+                    });
+                }
             });
 
             tag.addEventListener('mouseleave', () => {
-                projectCards.forEach(card => {
-                    card.classList.remove('highlight', 'dim');
-                });
+                if (activeSkill === null) {
+                    projectCards.forEach(card => {
+                        card.classList.remove('highlight', 'dim');
+                    });
+                }
             });
+        });
+
+        // Click anywhere else to deselect
+        document.addEventListener('click', (e) => {
+            // Check if click is outside skill tags area
+            const isSkillTag = e.target.closest('.skill-tags .tag');
+            if (!isSkillTag && activeSkill !== null) {
+                clearActiveSkill();
+            }
         });
     }
 };

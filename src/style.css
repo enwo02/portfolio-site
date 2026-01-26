@@ -399,13 +399,22 @@ body.page-transition.is-loaded {
   border-radius: 4px;
   font-size: 0.9rem;
   transition: all 0.2s;
-  cursor: default;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
 .tag:hover {
   background: var(--tag-bg-hover);
   color: var(--text-primary);
   transform: translateY(-2px);
+}
+
+.tag.active {
+  background: var(--accent-gradient);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Projects Grid */
