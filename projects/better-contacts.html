@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>BetterContacts | Elio Wanner</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-primary: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-text: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --card-text: rgba(0, 0, 0, 0.7);
+            --card-border: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Critical CSS for Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(125, 125, 125, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--text-primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Mockup Styles */
+        .mockup-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            background: #ffffff;
+            /* Default app bg */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 8px solid #333;
+            position: relative;
+        }
+
+        [data-theme="dark"] .mockup-container {
+            border-color: #555;
+        }
+
+        .app-header {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body class="page-transition">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="app">
+        <header class="header">
+            <div class="logo">E.W.</div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#projects" class="nav-link">Work</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main class="project-page-main">
+            <div class="project-header-image" style="background-image: url('../better-contacts-card.jpg')">
+                <div class="image-overlay"></div>
+            </div>
+
+            <div class="container project-content-container">
+                <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+                <h1 class="project-page-title">BetterContacts</h1>
+
+                <div class="project-meta">
+                    <div class="skill-tags">
+                        <span class="tag">Android</span>
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Graph Visualization</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <section class="project-section">
+                        <h2>The Concept</h2>
+                        <p>
+                            Contacts apps have been boring lists for too long.
+                            <strong>BetterContacts</strong> changes that by visualizing your network as it truly exists:
+                            a web of connections.
+                        </p>
+                        <p>
+                            Instead of an alphabetical list, you see yourself in the center, surrounded by your friends,
+                            family, and colleagues.
+                            Groups are color-coded, and connections between people are clearly visible.
+                        </p>
+                        <p>
+                            <strong>Contextual Memory:</strong> The app is built to help you remember people and details
+                            about them.
+                            If you recognize a face or know a person from a specific context (like "Uni" or
+                            "Volleyball") but forgot their name,
+                            simply look at the relevant group to find them instantly.
+                        </p>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Interactive Mockup</h2>
+                        <p>
+                            Here is a live simulation of the core visualization engine.
+                            The <strong>Red Node</strong> is you.
+                            <strong>Black Nodes</strong> represent the ETH study group (highly interconnected).
+                            <strong>Blue Nodes</strong> represent other contacts.
+                        </p>
+
+                        <div class="mockup-container">
+                            <div class="app-header">Elio's Social Network</div>
+                            <svg id="network-graph" viewBox="0 0 400 400" width="100%" height="400"
+                                style="background: #ffffff; touch-action: none;">
+                                <!-- Connections (Lines) -->
+                                <g id="links" stroke="#999" stroke-width="2"></g>
+                                <!-- Nodes (Bubbles) -->
+                                <g id="nodes"></g>
+                            </svg>
+                        </div>
+
+                        <script>
+                            // Physics Graph Visualization
+                            const svg = document.querySelector('#network-graph');
+                            const linksGroup = document.querySelector('#links');
+                            const nodesGroup = document.querySelector('#nodes');
+
+                            // Dimensions
+                            const width = 400;
+                            const height = 400;
+                            const centerX = width / 2;
+                            const centerY = height / 2;
+
+                            // Data
+                            const myNode = { id: 'me', name: 'Elio', x: centerX, y: centerY, r: 35, color: '#ff4444', textColor: 'white', fixed: true };
+
+                            const ethGroup = [
+                                { id: 'e1', name: 'Alex', x: 120, y: 150, r: 25, color: '#000000', textColor: 'white' },
+                                { id: 'e2', name: 'Sarah', x: 100, y: 250, r: 25, color: '#000000', textColor: 'white' },
+                                { id: 'e3', name: 'Prof. D.', x: 180, y: 100, r: 25, color: '#000000', textColor: 'white' }
+                            ];
+
+                            const restGroup = [
+                                { id: 'r1', name: 'Mom', x: 300, y: 300, r: 28, color: '#008c0e', textColor: 'white' },
+                                { id: 'r2', name: 'Dad', x: 250, y: 350, r: 28, color: '#008c0e', textColor: 'white' },
+                                { id: 'r3', name: 'Karen', x: 330, y: 220, r: 22, color: '#4488ff', textColor: 'white' },
+                                { id: 'r4', name: 'Tobi', x: 80, y: 320, r: 22, color: '#4488ff', textColor: 'white' }
+                            ];
+
+                            let nodes = [myNode, ...ethGroup, ...restGroup];
+
+                            // Initialize velocities
+                            nodes.forEach(node => {
+                                node.vx = 0;
+                                node.vy = 0;
+                                // Randomize initial positions slightly if not fixed to prevent stacking
+                                if (!node.fixed) {
+                                    node.x = Math.random() * width;
+                                    node.y = Math.random() * height;
+                                }
+                            });
+
+                            const links = [];
+
+                            // Connect everyone in ETH group to each other (stronger connections)
+                            for (let i = 0; i < ethGroup.length; i++) {
+                                for (let j = i + 1; j < ethGroup.length; j++) {
+                                    links.push({ source: ethGroup[i], target: ethGroup[j], distance: 80 });
+                                }
+                                // Connect to me
+                                links.push({ source: ethGroup[i], target: myNode, distance: 100 });
+                            }
+
+                            // Connect rest to me
+                            restGroup.forEach(node => {
+                                links.push({ source: node, target: myNode, distance: 120 });
+                            });
+
+                            // Connect Mom and Dad
+                            links.push({ source: restGroup[0], target: restGroup[1], distance: 60 });
+
+                            // Create SVG Elements
+                            // Links
+                            const linkElements = links.map(link => {
+                                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                                line.setAttribute('stroke', '#999');
+                                line.setAttribute('stroke-width', '2');
+                                linksGroup.appendChild(line);
+                                return { data: link, el: line };
+                            });
+
+                            // Nodes
+                            const nodeElements = nodes.map(node => {
+                                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                                g.style.cursor = node.fixed ? 'default' : 'grab';
+
+                                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                                circle.setAttribute('r', node.r);
+                                circle.setAttribute('fill', node.color);
+                                circle.setAttribute('stroke', 'white');
+                                circle.setAttribute('stroke-width', '2');
+
+                                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                text.textContent = node.name;
+                                text.setAttribute('text-anchor', 'middle');
+                                text.setAttribute('dy', '0.35em');
+                                text.setAttribute('fill', node.textColor);
+                                text.setAttribute('font-size', '12px');
+                                text.setAttribute('font-weight', 'bold');
+                                text.setAttribute('font-family', 'sans-serif');
+
+                                g.appendChild(circle);
+                                g.appendChild(text);
+
+                                // Drag Events
+                                g.addEventListener('mousedown', (e) => startDrag(e, node, g));
+                                g.addEventListener('touchstart', (e) => startDrag(e, node, g), { passive: false });
+
+                                // Hover
+                                g.addEventListener('mouseenter', () => circle.setAttribute('transform', 'scale(1.1)'));
+                                g.addEventListener('mouseleave', () => circle.setAttribute('transform', 'scale(1.0)'));
+
+                                nodesGroup.appendChild(g);
+                                return { data: node, el: g };
+                            });
+
+                            // Physics Params
+                            const repulsionStrength = 2000;
+                            const springStrength = 0.05;
+                            const friction = 0.85;
+
+                            // Drag State
+                            let draggedNode = null;
+                            let dragOffset = { x: 0, y: 0 };
+
+                            function startDrag(e, node, el) {
+                                if (node.fixed) return; // Cannot drag center
+                                e.preventDefault();
+                                draggedNode = node;
+                                el.style.cursor = 'grabbing';
+
+                                const point = getEventPoint(e);
+                                dragOffset.x = point.x - node.x;
+                                dragOffset.y = point.y - node.y;
+
+                                // Reset velocity
+                                node.vx = 0;
+                                node.vy = 0;
+                            }
+
+                            function getEventPoint(e) {
+                                const rect = svg.getBoundingClientRect();
+                                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                                return {
+                                    x: (clientX - rect.left) * (width / rect.width),
+                                    y: (clientY - rect.top) * (height / rect.height)
+                                };
+                            }
+
+                            window.addEventListener('mousemove', (e) => {
+                                if (draggedNode) {
+                                    const point = getEventPoint(e);
+                                    draggedNode.x = point.x - dragOffset.x;
+                                    draggedNode.y = point.y - dragOffset.y;
+                                    // Constraints
+                                    draggedNode.x = Math.max(draggedNode.r, Math.min(width - draggedNode.r, draggedNode.x));
+                                    draggedNode.y = Math.max(draggedNode.r, Math.min(height - draggedNode.r, draggedNode.y));
+                                }
+                            });
+
+                            window.addEventListener('mouseup', () => {
+                                if (draggedNode && !draggedNode.fixed) {
+                                    // Find element and reset cursor
+                                    const el = nodeElements.find(n => n.data === draggedNode).el;
+                                    el.style.cursor = 'grab';
+                                }
+                                draggedNode = null;
+                            });
+
+                            // Mobile End
+                            window.addEventListener('touchend', () => {
+                                draggedNode = null;
+                            });
+                            window.addEventListener('touchmove', (e) => {
+                                if (draggedNode) {
+                                    e.preventDefault();
+                                    const point = getEventPoint(e);
+                                    draggedNode.x = point.x - dragOffset.x;
+                                    draggedNode.y = point.y - dragOffset.y;
+                                }
+                            }, { passive: false });
+
+                            function updatePhysics() {
+                                // 1. Repulsion (Nodes push apart)
+                                for (let i = 0; i < nodes.length; i++) {
+                                    for (let j = i + 1; j < nodes.length; j++) {
+                                        const n1 = nodes[i];
+                                        const n2 = nodes[j];
+
+                                        let dx = n1.x - n2.x;
+                                        let dy = n1.y - n2.y;
+                                        let distSq = dx * dx + dy * dy;
+                                        let dist = Math.sqrt(distSq) || 1;
+
+                                        if (dist < 1) dist = 1; // avoid Infinity
+
+                                        const force = repulsionStrength / (distSq);
+                                        const fx = (dx / dist) * force;
+                                        const fy = (dy / dist) * force;
+
+                                        if (!n1.fixed && n1 !== draggedNode) {
+                                            n1.vx += fx;
+                                            n1.vy += fy;
+                                        }
+                                        if (!n2.fixed && n2 !== draggedNode) {
+                                            n2.vx -= fx;
+                                            n2.vy -= fy;
+                                        }
+                                    }
+                                }
+
+                                // 2. Springs (Links pull together)
+                                links.forEach(link => {
+                                    const source = link.source;
+                                    const target = link.target;
+
+                                    let dx = target.x - source.x;
+                                    let dy = target.y - source.y;
+                                    let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+                                    // Hooke's Law: F = k * (currentLength - targetLength)
+                                    const displacement = dist - link.distance;
+                                    const force = displacement * springStrength;
+
+                                    const fx = (dx / dist) * force;
+                                    const fy = (dy / dist) * force;
+
+                                    if (!source.fixed && source !== draggedNode) {
+                                        source.vx += fx;
+                                        source.vy += fy;
+                                    }
+                                    if (!target.fixed && target !== draggedNode) {
+                                        target.vx -= fx;
+                                        target.vy -= fy;
+                                    }
+                                });
+
+                                // 3. Center Gravity (Keep things in view)
+                                // Only applies if they drift too far
+                                nodes.forEach(node => {
+                                    if (node.fixed) return;
+
+                                    const dx = centerX - node.x;
+                                    const dy = centerY - node.y;
+
+                                    // Gentle pull to center
+                                    node.vx += dx * 0.005;
+                                    node.vy += dy * 0.005;
+                                });
+
+                                // 4. Update Positions
+                                nodes.forEach(node => {
+                                    if (node.fixed) {
+                                        node.x = centerX;
+                                        node.y = centerY;
+                                        node.vx = 0;
+                                        node.vy = 0;
+                                        return;
+                                    }
+
+                                    if (node === draggedNode) return; // Handled by mouse
+
+                                    node.vx *= friction;
+                                    node.vy *= friction;
+
+                                    node.x += node.vx;
+                                    node.y += node.vy;
+
+                                    // Wall Bouncing
+                                    const padding = node.r + 5;
+                                    if (node.x < padding) { node.x = padding; node.vx *= -0.5; }
+                                    if (node.x > width - padding) { node.x = width - padding; node.vx *= -0.5; }
+                                    if (node.y < padding) { node.y = padding; node.vy *= -0.5; }
+                                    if (node.y > height - padding) { node.y = height - padding; node.vy *= -0.5; }
+                                });
+
+                                // Render
+                                linkElements.forEach(item => {
+                                    const s = item.data.source;
+                                    const t = item.data.target;
+                                    item.el.setAttribute('x1', s.x);
+                                    item.el.setAttribute('y1', s.y);
+                                    item.el.setAttribute('x2', t.x);
+                                    item.el.setAttribute('y2', t.y);
+                                });
+
+                                nodeElements.forEach(item => {
+                                    item.el.setAttribute('transform', `translate(${item.data.x}, ${item.data.y})`);
+                                });
+
+                                requestAnimationFrame(updatePhysics);
+                            }
+
+                            // Start Loop
+                            updatePhysics();
+                        </script>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Features</h2>
+                        <ul class="d-list">
+                            <li><strong>Grouping:</strong> Contacts are grouped by affiliation (Work, Family,
+                                University).</li>
+                            <li><strong>Visual Relationships:</strong> See who knows whom and remember where you know
+                                people from.</li>
+                            <li><strong>Voice to text:</strong> To add additional information about a contact, you can
+                                simply speak and the app will use whisper from openAI to convert your voice to text.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Get Access</h2>
+                        <p>
+                            BetterContacts is currently in private beta. If you are interested in trying it out or want
+                            to learn
+                            more about the development process, please <a href="../index.html#contact">contact me</a>
+                            for access.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Elio Wanner. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

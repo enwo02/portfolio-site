@@ -3,6 +3,23 @@ import { i18n } from './i18n.js'
 
 // Project Data with translations
 const projectTranslations = {
+    'better-contacts': {
+        en: {
+            title: "BetterContacts",
+            description: "Android app visualizing your social circle as an interactive bubble network.",
+            longDescription: "A fresh take on the contact book. BetterContacts visualizes your social network as it really is: a web of connections. Built for Android using Kotlin and custom view components, it features a dynamic force-directed graph where you are the center of your universe, surrounded by color-coded groups of friends, family, and colleagues."
+        },
+        de: {
+            title: "BetterContacts",
+            description: "Android-App, die dein soziales Umfeld als interaktives Blasen-Netzwerk visualisiert.",
+            longDescription: "Eine neue Perspektive auf das Kontaktbuch. BetterContacts visualisiert dein soziales Netzwerk so, wie es wirklich ist: ein Netz aus Verbindungen. Entwickelt für Android mit Kotlin und benutzerdefinierten View-Komponenten, bietet es einen dynamischen, kraftgesteuerten Graphen, in dem du das Zentrum deines Universums bist, umgeben von farbcodierten Gruppen aus Freunden, Familie und Kollegen."
+        },
+        fr: {
+            title: "BetterContacts",
+            description: "Application Android visualisant votre cercle social sous forme de réseau de bulles interactif.",
+            longDescription: "Une nouvelle approche du carnet d'adresses. BetterContacts visualise votre réseau social tel qu'il est vraiment : une toile de connexions. Conçue pour Android avec Kotlin et des composants de vue personnalisés, elle propose un graphe dynamique dirigé par la force où vous êtes le centre de votre univers, entouré de groupes d'amis, de famille et de collègues codés par couleur."
+        }
+    },
     'hardware-watchdog': {
         en: {
             title: "Hardware Watchdog",
@@ -183,6 +200,18 @@ const getTranslated = (projectId, field) => {
 
 // Project Data
 const projects = [
+    {
+        id: "better-contacts",
+        getTitle: () => getTranslated("better-contacts", "title"),
+        getDescription: () => getTranslated("better-contacts", "description"),
+        getLongDescription: () => getTranslated("better-contacts", "longDescription"),
+        image: "/better-contacts-card.jpg",
+        link: "projects/better-contacts.html",
+        skills: ["Android", "Kotlin", "Graph Visualization", "UI/UX"],
+        type: "Personal",
+        date: "Nov 2024"
+    },
+
     {
         id: "hardware-watchdog",
         getTitle: () => getTranslated("hardware-watchdog", "title"),
@@ -371,7 +400,7 @@ const renderProjects = (container, projectList) => {
 
     container.innerHTML = projectList.map(project => `
         <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
-        <a href="${resolvePath(project.link)}" class="project-image" style="background-image: url('${resolvePath(project.image)}')">
+        <a href="${resolvePath(project.link)}" class="project-image" style="background-image: url('${resolvePath(project.image)}'); ${project.imageStyle || ''}">
             <div class="project-badges">
                 ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
                 ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
