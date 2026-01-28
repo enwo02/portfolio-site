@@ -371,12 +371,12 @@ const renderProjects = (container, projectList) => {
 
     container.innerHTML = projectList.map(project => `
         <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
-            <div class="project-image" style="background-image: url('${resolvePath(project.image)}')">
-                <div class="project-badges">
-                    ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
-                    ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
-                </div>
+        <a href="${resolvePath(project.link)}" class="project-image" style="background-image: url('${resolvePath(project.image)}')">
+            <div class="project-badges">
+                ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
+                ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
             </div>
+        </a>
             <div class="project-info">
                 <h3 class="project-title">${project.getTitle()}</h3>
                 <p class="project-desc">${project.getDescription()}</p>
