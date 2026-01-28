@@ -688,3 +688,25 @@ window.addEventListener('pageshow', (event) => {
         document.body.classList.add('is-loaded');
     }
 });
+
+// Avatar Blinking Effect
+const avatar = document.querySelector('.hero-avatar');
+if (avatar) {
+    const blinkImage = new Image();
+    blinkImage.src = resolvePath('/avatar-blink.png');
+    const originalSrc = avatar.src;
+
+    let isBlinking = false;
+
+    const blink = () => {
+        if (isBlinking) return;
+        isBlinking = true;
+        avatar.src = blinkImage.src;
+        setTimeout(() => {
+            avatar.src = originalSrc;
+            isBlinking = false;
+        }, 200);
+    };
+
+    avatar.addEventListener('mouseenter', blink);
+}
