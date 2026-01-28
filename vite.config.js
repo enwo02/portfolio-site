@@ -17,6 +17,7 @@ export default defineConfig({
                 'light-pendulum': resolve(__dirname, 'projects/light-pendulum.html'),
                 'uppsala-digital': resolve(__dirname, 'projects/uppsala-digital.html'),
                 'analog-first-film': resolve(__dirname, 'projects/analog-first-film.html'),
+                'better-contacts': resolve(__dirname, 'projects/better-contacts.html'),
             },
         },
     },
