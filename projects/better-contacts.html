@@ -99,6 +99,45 @@
             color: #333;
             border-bottom: 1px solid #eee;
         }
+
+        /* Screenshot Gallery */
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .screenshot-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-img:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot-desc {
+            font-size: 0.95rem;
+            color: var(--card-text);
+            line-height: 1.6;
+        }
+
+        .screenshot-title {
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
     </style>
 </head>
 
@@ -157,31 +196,33 @@
                     <section class="project-section">
                         <h2>The Concept</h2>
                         <p>
-                            Contacts apps have been boring lists for too long.
-                            <strong>BetterContacts</strong> changes that by visualizing your network as it truly exists:
-                            a web of connections.
+                            This is an app I made because I always have the problem that I forget people's names and
+                            where I know them from. The main idea is to visualize your network as it truly exists: a web
+                            of
+                            connections. Colorcoded by groups and links drawn between people who know each other.
                         </p>
+
+                    </section>
+
+                    <section class="project-section">
+                        <h2>Integration</h2>
                         <p>
-                            Instead of an alphabetical list, you see yourself in the center, surrounded by your friends,
-                            family, and colleagues.
-                            Groups are color-coded, and connections between people are clearly visible.
-                        </p>
-                        <p>
-                            <strong>Contextual Memory:</strong> The app is built to help you remember people and details
-                            about them.
-                            If you recognize a face or know a person from a specific context (like "Uni" or
-                            "Volleyball") but forgot their name,
-                            simply look at the relevant group to find them instantly.
+                            The app easily integrates with your existing contacts. It uses the free-text field to store
+                            all the additional information. It therefore also automatically syncs between different
+                            devices,
+                            if you already sync your contacts.
                         </p>
                     </section>
 
                     <section class="project-section">
                         <h2>Interactive Mockup</h2>
                         <p>
-                            Here is a live simulation of the core visualization engine.
+                            Here is a live simulation of how the visualization works.
                             The <strong>Red Node</strong> is you.
-                            <strong>Black Nodes</strong> represent the ETH study group (highly interconnected).
+                            <strong>Black Nodes</strong> represent people I know from ETH.
+                            <strong>Green Nodes</strong> represent family.
                             <strong>Blue Nodes</strong> represent other contacts.
+                            You can drag the nodes around to see how the graph reacts.
                         </p>
 
                         <div class="mockup-container">
@@ -484,25 +525,68 @@
                     </section>
 
                     <section class="project-section">
-                        <h2>Features</h2>
-                        <ul class="d-list">
-                            <li><strong>Grouping:</strong> Contacts are grouped by affiliation (Work, Family,
-                                University).</li>
-                            <li><strong>Visual Relationships:</strong> See who knows whom and remember where you know
-                                people from.</li>
-                            <li><strong>Voice to text:</strong> To add additional information about a contact, you can
-                                simply speak and the app will use whisper from openAI to convert your voice to text.
-                            </li>
-                        </ul>
+                        <h2>App Tour</h2>
+                        <p>
+                            The following four screenshots show the main features of the app.
+                        </p>
+                        <div class="screenshot-gallery">
+                            <div class="screenshot-item">
+                                <img src="../better-contacts/screenshot-1.png" alt="Graph Visualization"
+                                    class="screenshot-img">
+                                <div class="screenshot-desc">
+                                    <span class="screenshot-title">Bubble Graph</span>
+                                    The core of the app. A force-directed graph shows you (in red) at the center,
+                                    surrounded by your clusters of contacts. At the bottom you can see the different
+                                    groups
+                                    and their respective colors. You can click on a group to enable the highlight color.
+                                    At the top you can also click on the face icon to put the profile picture of each
+                                    contact
+                                    in the bubbles.
+                                </div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="../better-contacts/screenshot-2.png" alt="Add Contact Screen"
+                                    class="screenshot-img">
+                                <div class="screenshot-desc">
+                                    <span class="screenshot-title">Adding a Contact</span>
+                                    Adding a contact isn't just about a name. Ensure you remember them by adding context
+                                    immediately—like where you met ("choir weekend") and what they do. This can easily
+                                    be done by speaking to the app. It will transcribe your speech using OpenAI's
+                                    Whisper
+                                    API. Also here you can add groups and relationships to the contact.
+                                </div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="../better-contacts/screenshot-3.png" alt="Contact List"
+                                    class="screenshot-img">
+                                <div class="screenshot-desc">
+                                    <span class="screenshot-title">List View</span>
+                                    This is your usual contacts-app view. You can see all your contacts in a list and
+                                    search for them. You also immediately see their groups.
+                                </div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="../better-contacts/screenshot-4.png" alt="Contact Details"
+                                    class="screenshot-img">
+                                <div class="screenshot-desc">
+                                    <span class="screenshot-title">Contact's Timeline</span>
+                                    When you click on a contact, you can see their details. Here you can see all the
+                                    information you have added about the contact, including their groups and
+                                    relationships.
+                                    You can also see a timeline of your interactions with the contact. Everytime you add
+                                    a note
+                                    on a contact, it will be added with a timestamp, keeping track of the relationship.
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                     <section class="project-section">
                         <h2>Get Access</h2>
                         <p>
                             BetterContacts is currently in private beta. If you are interested in trying it out or want
-                            to learn
-                            more about the development process, please <a href="../index.html#contact">contact me</a>
-                            for access.
+                            to learn more about the development process, please <a href="../index.html#contact">contact
+                                me</a> for access.
                         </p>
                     </section>
                 </div>
