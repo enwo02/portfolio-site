@@ -434,12 +434,7 @@ const updateTranslations = () => {
     attachSkillHoverListeners();
 };
 
-// Home Page Logic: Render Projects
-const projectsContainer = document.getElementById('projects-grid');
-const photographyContainer = document.getElementById('photography-grid');
 
-renderProjects(projectsContainer, projects);
-renderProjects(photographyContainer, artProjects);
 
 // Function to attach skill hover listeners
 const attachSkillHoverListeners = () => {
@@ -532,8 +527,8 @@ const attachSkillHoverListeners = () => {
     }
 };
 
-// Initial skill hover setup
-attachSkillHoverListeners();
+// Initial translation update (renders projects and attaches listeners)
+updateTranslations();
 
 // Language Switcher Logic
 const languageSwitcher = document.getElementById('language-switcher');
