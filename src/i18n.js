@@ -19,7 +19,7 @@ const translations = {
         },
         about: {
             title: 'About Me',
-            p1: "I am a Master's student in Electrical Engineering at ETH Zurich, specializing in Electronics. Previously, I completed my BSc at EPFL and spent an exchange year at Lund University.",
+            p1: "I am a Master's student in Electrical Engineering at ETH Zurich, specializing in Electronics and Railway Systems. Previously, I completed my BSc at EPFL and spent an exchange year at Lund University.",
             p2: "Currently, I am a working student at Siemens, where I work as a Data Analyst & Cloud Engineer Intern, building and managing cloud pipelines, improving data quality and creating visualizations for customers.",
             p3: "When I'm not coding, you can find me singing in a choir, riding a train or taking care of my plants.",
             fluency: 'Fluency:',
@@ -59,7 +59,7 @@ const translations = {
         },
         about: {
             title: 'Über mich',
-            p1: 'Ich bin Masterstudent in Elektrotechnik an der ETH Zürich mit Schwerpunkt Elektronik. Zuvor habe ich meinen BSc an der EPFL abgeschlossen und ein Austauschjahr an der Universität Lund verbracht.',
+            p1: 'Ich bin Masterstudent in Elektrotechnik an der ETH Zürich mit Schwerpunkt Elektronik und Bahnsysteme. Zuvor habe ich meinen BSc an der EPFL abgeschlossen und ein Austauschjahr an der Universität Lund verbracht.',
             p2: 'Derzeit arbeite ich als Werkstudent bei Siemens, wo ich als Datenanalyst & Cloud Engineer Praktikant Cloud-Pipelines aufbaue und verwalte, die Datenqualität verbessere und Visualisierungen für Kunden erstelle.',
             p3: 'Wenn ich nicht am Programmieren bin, singe ich in einem Chor, fahre Zug oder kümmere mich um meine Pflanzen.',
             fluency: 'Sprachkenntnisse:',
@@ -99,7 +99,7 @@ const translations = {
         },
         about: {
             title: 'À propos de moi',
-            p1: "Je suis étudiant en Master en génie électrique à l'ETH Zurich, spécialisé en électronique. Auparavant, j'ai obtenu mon BSc à l'EPFL et passé une année d'échange à l'Université de Lund.",
+            p1: "Je suis étudiant en Master en génie électrique à l'ETH Zurich, spécialisé en électronique et systèmes ferroviaires. Auparavant, j'ai obtenu mon BSc à l'EPFL et passé une année d'échange à l'Université de Lund.",
             p2: "Actuellement, je travaille comme étudiant chez Siemens, où je suis stagiaire en tant qu'analyste de données et ingénieur cloud, construisant et gérant des pipelines cloud, améliorant la qualité des données et créant des visualisations pour les clients.",
             p3: "Quand je ne programme pas, vous me trouverez en train de chanter dans une chorale, de prendre le train ou de m'occuper de mes plantes.",
             fluency: 'Compétences linguistiques :',
