@@ -400,7 +400,8 @@ const renderProjects = (container, projectList) => {
 
     container.innerHTML = projectList.map(project => `
         <article class="project-card" data-skills='${JSON.stringify(project.skills)}'>
-        <a href="${resolvePath(project.link)}" class="project-image" style="background-image: url('${resolvePath(project.image)}'); ${project.imageStyle || ''}">
+        <a href="${resolvePath(project.link)}" class="project-image">
+            <img src="${resolvePath(project.image)}" alt="${project.getTitle()}" loading="lazy" class="project-image-img">
             <div class="project-badges">
                 ${project.type ? `<span class="badge badge-type badge-${project.type.toLowerCase()}">${project.type}</span>` : ''}
                 ${project.date ? `<span class="badge badge-date">${project.date}</span>` : ''}
@@ -702,7 +703,7 @@ document.querySelectorAll('a').forEach(link => {
 
         setTimeout(() => {
             window.location.href = href;
-        }, 400); // Matches CSS duration
+        }, 0); // Matches CSS duration
     });
 });
 
