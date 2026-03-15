@@ -713,6 +713,17 @@ window.addEventListener('pageshow', (event) => {
     }
 });
 
+// Construct email address to prevent simple scraping
+const contactBtn = document.getElementById('contact-email-btn');
+if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const user = 'elio.wanner';
+        const domain = 'hotmail.com';
+        window.location.href = `mailto:${user}@${domain}`;
+    });
+}
+
 // Avatar Blinking Effect
 const avatar = document.querySelector('.hero-avatar');
 if (avatar) {
