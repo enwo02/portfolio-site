@@ -637,12 +637,6 @@ document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el))
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 
-// Check for saved preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-}
-
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
