@@ -117,67 +117,11 @@ body.page-transition.is-loaded {
   color: var(--text-primary);
 }
 
-/* Header Controls (Language + Theme) */
+/* Header Controls */
 .header-controls {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-}
-
-/* Language Switcher */
-.language-switcher {
-  display: flex;
-  gap: 4px;
-  background: var(--surface-color);
-  padding: 4px;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  position: relative;
-  /* For glider positioning */
-  padding: 4px;
-  /* Ensure padding for glider to move within */
-  z-index: 10;
-}
-
-.lang-glider {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  height: calc(100% - 8px);
-  background: var(--accent-gradient);
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1;
-  /* Width and Transform set by JS */
-}
-
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  padding: 4px 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 16px;
-  transition: all var(--transition-speed);
-  font-family: var(--font-main);
-  position: relative;
-  z-index: 2;
-  /* Above glider */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lang-btn:hover {
-  color: var(--text-primary);
-  background: var(--tag-bg-hover);
-}
-
-.lang-btn.active {
-  /* background handled by glider */
-  color: white;
 }
 
 /* Theme Toggle */
@@ -759,16 +703,6 @@ body.page-transition.is-loaded {
 
   .header-controls {
     gap: 0.5rem;
-  }
-
-  .language-switcher {
-    padding: 3px;
-    gap: 2px;
-  }
-
-  .lang-btn {
-    padding: 3px 8px;
-    font-size: 0.75rem;
   }
 
   .hero-title {

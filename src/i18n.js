@@ -12,7 +12,7 @@ const translations = {
         hero: {
             title: 'Elio Wanner',
             subtitle1: 'MSc Student @ ETHZ',
-            subtitle2: 'Data Analyst & Cloud Engineer @ Siemens',
+            subtitle2: 'Application Manager and Developer @ Siemens',
             description: 'Specializing in Electronics and Railway Systems.',
             viewWork: 'View Work',
             contactMe: 'Contact Me'
@@ -20,7 +20,7 @@ const translations = {
         about: {
             title: 'About Me',
             p1: "I am a Master's student in Electrical Engineering at ETH Zurich, specializing in Electronics and Railway Systems. Previously, I completed my BSc at EPFL and spent an exchange year at Lund University.",
-            p2: "Currently, I am a working student at Siemens, where I work as a Data Analyst & Cloud Engineer Intern, building and managing cloud pipelines, improving data quality and creating visualizations for customers.",
+            p2: "Currently, I am a working student at Siemens, where I work as a Application Manager and Developer Intern, building and managing cloud pipelines, improving data quality and creating visualizations for customers.",
             p3: "When I'm not coding, you can find me singing in a choir, riding a train or taking care of my plants.",
             fluency: 'Fluency:',
             fluencyText: 'German (Native), English (C2), French (C1), Swedish (B2), Italian (A2).',
@@ -52,7 +52,7 @@ const translations = {
         hero: {
             title: 'Elio Wanner',
             subtitle1: 'MSc Student @ ETHZ',
-            subtitle2: 'Datenanalyst & Cloud Engineer @ Siemens',
+            subtitle2: 'Application Manager und Developer @ Siemens',
             description: 'Spezialisiert auf Elektronik und Bahnsysteme.',
             viewWork: 'Projekte ansehen',
             contactMe: 'Kontakt aufnehmen'
@@ -60,7 +60,7 @@ const translations = {
         about: {
             title: 'Über mich',
             p1: 'Ich bin Masterstudent in Elektrotechnik an der ETH Zürich mit Schwerpunkt Elektronik und Bahnsysteme. Zuvor habe ich meinen BSc an der EPFL abgeschlossen und ein Austauschjahr an der Universität Lund verbracht.',
-            p2: 'Derzeit arbeite ich als Werkstudent bei Siemens, wo ich als Datenanalyst & Cloud Engineer Praktikant Cloud-Pipelines aufbaue und verwalte, die Datenqualität verbessere und Visualisierungen für Kunden erstelle.',
+            p2: 'Derzeit arbeite ich als Werkstudent bei Siemens, wo ich als Application Manager und Developer Praktikant Cloud-Pipelines aufbaue und verwalte, die Datenqualität verbessere und Visualisierungen für Kunden erstelle.',
             p3: 'Wenn ich nicht am Programmieren bin, singe ich in einem Chor, fahre Zug oder kümmere mich um meine Pflanzen.',
             fluency: 'Sprachkenntnisse:',
             fluencyText: 'Deutsch (Muttersprache), Englisch (C2), Französisch (C1), Schwedisch (B2), Italienisch (A2).',
@@ -92,7 +92,7 @@ const translations = {
         hero: {
             title: 'Elio Wanner',
             subtitle1: 'Étudiant MSc @ ETHZ',
-            subtitle2: 'Analyste de données & Ingénieur Cloud @ Siemens',
+            subtitle2: 'Application Manager et Développeur @ Siemens',
             description: 'Spécialisé en électronique et systèmes ferroviaires.',
             viewWork: 'Voir les projets',
             contactMe: 'Me contacter'
@@ -100,7 +100,7 @@ const translations = {
         about: {
             title: 'À propos de moi',
             p1: "Je suis étudiant en Master en génie électrique à l'ETH Zurich, spécialisé en électronique et systèmes ferroviaires. Auparavant, j'ai obtenu mon BSc à l'EPFL et passé une année d'échange à l'Université de Lund.",
-            p2: "Actuellement, je travaille comme étudiant chez Siemens, où je suis stagiaire en tant qu'analyste de données et ingénieur cloud, construisant et gérant des pipelines cloud, améliorant la qualité des données et créant des visualisations pour les clients.",
+            p2: "Actuellement, je travaille comme étudiant chez Siemens, où je suis stagiaire en tant qu'Application Manager et Développeur, construisant et gérant des pipelines cloud, améliorant la qualité des données et créant des visualisations pour les clients.",
             p3: "Quand je ne programme pas, vous me trouverez en train de chanter dans une chorale, de prendre le train ou de m'occuper de mes plantes.",
             fluency: 'Compétences linguistiques :',
             fluencyText: 'Allemand (natif), Anglais (C2), Français (C1), Suédois (B2), Italien (A2).',
@@ -126,25 +126,9 @@ const translations = {
 
 class I18n {
     constructor() {
-        this.currentLang = this.detectLanguage();
+        this.currentLang = 'en';
         this.listeners = [];
-    }
-
-    detectLanguage() {
-        // Check localStorage first
-        const savedLang = localStorage.getItem('language');
-        if (savedLang && translations[savedLang]) {
-            return savedLang;
-        }
-
-        // Check browser language
-        const browserLang = navigator.language.split('-')[0]; // 'en-US' -> 'en'
-        if (translations[browserLang]) {
-            return browserLang;
-        }
-
-        // Default to English
-        return 'en';
+        document.documentElement.setAttribute('lang', 'en');
     }
 
     setLanguage(lang) {
